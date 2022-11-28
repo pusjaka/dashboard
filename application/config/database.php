@@ -6,10 +6,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'db_simkopsis',
+	'hostname' => 'pusjak-llatp.com',
+	'username' => 'u540115449_admin',
+	'password' => 'Pusjak@2022',
+	'database' => 'db_pusjak',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
