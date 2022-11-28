@@ -48,7 +48,7 @@
 					<div class="card shadow mb-4">
 						<!-- Card Header - Dropdown -->
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Kegiatan PUSJAK KTP</h6>
+							<h6 class="m-0 font-weight-bold text-primary">Kegiatan Bidang Kebijakan Transportasi Perkotaan</h6>
 							<input type="text" id="searchInput3" class="col-4 form-control" placeholder="Cari"><input class="datepicker form-control col-lg-2" id="date-filter" type="date" value="11/17/2022">
 						</div>
 						<!-- Card Body -->
