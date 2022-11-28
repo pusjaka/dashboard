@@ -1,13 +1,12 @@
 ###################
-Sistem Informasi Koperasi Syariah
+Sistem Informasi PUSJAK LLATP
 ###################
 
-Sistem Informasi Koperasi Simpan Pinjam Syariah berbasi web, Copyright 2019 digtive.id
+Sistem Informasi Dashboard Admin PUSJAK
 
 
 *******************
-writen by bagussjm,jbenastey
+writen by Rifqi
 *******************
 
-Creative Crew
 
