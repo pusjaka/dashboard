@@ -110,9 +110,9 @@
                                 <ul>
                                     <li><a href="<?= base_url('dashboard')?>" class="waves-effect waves-cyan"> Dashboard TU</a>
                                     </li>
-                                    <li><a href="<?= base_url('dashboard-ptpp')?>" class="waves-effect waves-cyan"> Dashboard PTPP</a>
+                                    <li><a href="<?= base_url('dashboard-ptpp')?>" class="waves-effect waves-cyan"> Dashboard KTP</a>
                                     </li>
-                                    <li><a href="<?= base_url('dashboard-pe')?>" class="waves-effect waves-cyan"> Dashboard PE</a>
+                                    <li><a href="<?= base_url('dashboard-pe')?>" class="waves-effect waves-cyan"> Dashboard LLA</a>
                                     </li>
                                 </ul>
                             </div>
@@ -136,9 +136,9 @@
                                     </li>
                                     <li><a href="<?= base_url('kegiatan-tu')?>">Kegiatan TU</a>
                                     </li>
-                                    <li><a href="<?= base_url('kegiatan-ptpp')?>">Kegiatan PTPP</a>
+                                    <li><a href="<?= base_url('kegiatan-ptpp')?>">Kegiatan KTP</a>
                                     </li>
-                                    <li><a href="<?= base_url('kegiatan-pe')?>">Kegiatan PE</a>
+                                    <li><a href="<?= base_url('kegiatan-pe')?>">Kegiatan LLA</a>
                                     </li>
                                 </ul>
                             </div>
