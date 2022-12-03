@@ -59,6 +59,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	$route['anggaran'] = 'AnggaranController/dashboard';
 
+	$route['berkas'] = 'BerkasController/dashboard';
+
 	$route['dashboard'] = 'DashboardController/dashboard';
 	$route['dashboard-tu-date'] = 'DashboardController/get_dashboard_tu';
 	$route['dashboard-tu-surat-date'] = 'DashboardController/get_dashboard_tu_surat';

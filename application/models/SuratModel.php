@@ -8,6 +8,11 @@ class SuratModel extends GLOBAL_Model
 	}
 
 	public function lihat_semua_surat(){
+		$query = $this->db->query("SELECT * FROM surat ORDER BY id DESC");
+		return $query->result(); // return berupa array objek
+	}
+
+	public function lihat_current_surat(){
 		$query = $this->db->query("SELECT * FROM surat ORDER BY tanggal_surat DESC");
 		return $query->result(); // return berupa array objek
 	}

@@ -44,7 +44,11 @@
 						$this->session->set_userdata($sessionData);
 
 							parent::alert('alert','user-welcome');
-							redirect(base_url());
+							if($sessionData['level'] == 'staff'){
+								redirect(base_url());
+							} else if($sessionData['level'] == 'user'){
+								redirect(base_url('dashboard'));
+							}
 					}else{
 						parent::alert('alert','error-login');
 					}

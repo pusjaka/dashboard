@@ -5,7 +5,7 @@ class DashboardController extends GLOBAL_Controller{
     public function __construct()
     {
         parent::__construct();
-        $model = array('AnggaranModel', 'SuratModel', 'KegiatanModel', 'KehadiranModel');
+        $model = array('AnggaranModel', 'SuratModel', 'KegiatanModel', 'KehadiranModel', 'BerkasModel');
 		$this->load->model($model);
 		if (!parent::hasLogin()) {
 			$this->session->set_flashdata('alert', 'belum_login');
@@ -16,12 +16,11 @@ class DashboardController extends GLOBAL_Controller{
     public function dashboard()
     {
 		$data['title'] = 'Dashboard TU';
-		$data['anggaran'] = parent::model('AnggaranModel')->lihat_semua_anggaran();
+		$data['anggaran'] = parent::model('AnggaranModel')->lihat_current_anggaran();
 		$data['surat'] = parent::model('SuratModel')->lihat_semua_surat();
 		$data['kegiatan_tu'] = parent::model('KegiatanModel')->lihat_semua_kegiatan_tu();
-		$data['kegiatan_ptpp'] = parent::model('KegiatanModel')->lihat_semua_kegiatan_ptpp();
-		$data['kegiatan_pe'] = parent::model('KegiatanModel')->lihat_semua_kegiatan_pe();
-		$data['kehadiran'] = parent::model('KehadiranModel')->lihat_semua();
+		$data['kehadiran'] = parent::model('KehadiranModel')->lihat_current();
+		$data['berkas'] = parent::model('BerkasModel')->lihat_semua_berkas();
 
 		parent::dashboardPage('dashboard/index',$data);
     }
@@ -178,10 +177,15 @@ class DashboardController extends GLOBAL_Controller{
 			<table class='table table-bordered' id='dataTable-kegiatan-pe' width='100%' cellspacing='0'>
 								<thead>
 									<tr>
-										<th >Tanggal</th>
 										<th >Nama Kegiatan</th>
-										<th >Progress</th>
-										<th >Keterangan</th>
+										<th >PIC</th>
+										<th >Tingkat Prioritas</th>
+										<th >Status</th>
+										<th >Timeline</th>
+										<th >Biaya</th>
+										<th >Completion</th>
+										<th >Deskripsi Update</th>
+										<th >Update Terakhir</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -191,10 +195,15 @@ class DashboardController extends GLOBAL_Controller{
 				foreach($result as $row){
 					$output .= '
 						<tr>
-							<td>'.$row->tanggal_kegiatan.'</td>
 							<td>'.$row->nama_kegiatan.'</td>
+							<td>'.$row->PIC.'</td>
+							<td>'.$row->tingkat_prioritas.'</td>
 							<td>'.$row->progress.'</td>
+							<td>'.$row->tanggal_kegiatan.' - '.$row->tanggal_kegiatan_end.'</td>
+							<td>'.$row->biaya.'</td>
+							<td>'.$row->completion.'</td>
 							<td>'.$row->keterangan.'</td>
+							<td>'.$row->updated_at.'</td>
 						</tr>
 					';
 				}
@@ -215,18 +224,112 @@ class DashboardController extends GLOBAL_Controller{
 		$query_kehadiran = $this->db->query("SELECT * FROM kehadiran WHERE tanggal_kehadiran = '".$_POST['tanggal']."' ORDER BY tanggal_kehadiran DESC");
 		$result = $query_kehadiran->result();
 
-		$data = array(
-			'cuti' => $result[0]->CUTI,
-			'tb' => $result[0]->TB,
-			'dl' => $result[0]->DL,
-			'pkp' => $result[0]->PKP,
-			's' => $result[0]->S,
-		);
+		// $data = array(
+		// 	'cuti' => $result[0]->CUTI,
+		// 	'tb' => $result[0]->TB,
+		// 	'dl' => $result[0]->DL,
+		// 	'pkp' => $result[0]->PKP,
+		// 	's' => $result[0]->S,
+		// );
+		$tb = $result[0]->TB ?? 0;
+		$cuti = $result[0]->CUTI ?? 0;
+		$dl = $result[0]->DL ?? 0;
+		$pkp = $result[0]->PKP ?? 0;
+		$s = $result[0]->S ?? 0;
+
+		$output = '<div class="row"><div class="col-xl-2 col-md-6 mb-4">
+			<div class="card border-left-danger shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-lg font-weight-bold text-danger text-uppercase mb-1">
+								TB</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">'.$tb.'</div>
+						</div>
+						<div class="col-auto">
+							<i class="fas fa-calendar fa-2x text-gray-300"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-2 col-md-6 mb-4">
+			<div class="card border-left-success shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-lg font-weight-bold text-success text-uppercase mb-1">
+								CUTI</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">'.$cuti.'</div>
+						</div>
+						<div class="col-auto">
+							<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-2 col-md-6 mb-4">
+			<div class="card border-left-warning shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-lg font-weight-bold text-warning text-uppercase mb-1">
+								DINAS LUAR</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">'.$dl.'</div>
+						</div>
+						<div class="col-auto">
+							<i class="fas fa-comments fa-2x text-gray-300"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-xl-2 col-md-6 mb-4">
+			<div class="card border-left-warning shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-lg font-weight-bold text-warning text-uppercase mb-1">
+								PKP</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">'.$pkp.'</div>
+						</div>
+						<div class="col-auto">
+							<i class="fas fa-comments fa-2x text-gray-300"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-2 col-md-6 mb-4">
+			<div class="card border-left-warning shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-lg font-weight-bold text-warning text-uppercase mb-1">
+								SAKIT</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">'.$s.'</div>
+						</div>
+						<div class="col-auto">
+							<i class="fas fa-comments fa-2x text-gray-300"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div></div>';
+
+		echo $output;
+
 	}
 
 	public function dashboard_ptpp()
     {
-		$data['title'] = 'Dashboard PTPP';
+		$data['title'] = 'Dashboard KTP';
 		$data['kegiatan_ptpp'] = parent::model('KegiatanModel')->lihat_semua_kegiatan_ptpp();
 
 		parent::dashboardPage('dashboard_ptpp/index',$data);
@@ -234,7 +337,7 @@ class DashboardController extends GLOBAL_Controller{
 
 	public function dashboard_pe()
     {
-		$data['title'] = 'Dashboard PE';
+		$data['title'] = 'Dashboard LLA';
 		$data['kegiatan_pe'] = parent::model('KegiatanModel')->lihat_semua_kegiatan_pe();
 
 		parent::dashboardPage('dashboard_pe/index',$data);

@@ -12,6 +12,11 @@ class KehadiranModel extends GLOBAL_Model
 		return $query->result(); // return berupa array objek
 	}
 
+	public function lihat_current(){
+		$query = $this->db->query("SELECT * FROM kehadiran WHERE tanggal_kehadiran = '".date('Y-m-d')." 00:00:00' ORDER BY id DESC");
+		return $query->row(); // return berupa array objek
+	}
+
 	public function tambah($data){
 		return parent::insert_with_status('kehadiran',$data);
 	}

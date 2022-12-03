@@ -56,6 +56,9 @@
 									<i class="mdi-content-create orange-text"></i>
 								</a>
 							</div>
+							<a href="<?= base_url('kegiatan/hapus/'.$value->id.'/pe') ?>" class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-edit2" title="ubah data">
+								<i class="mdi-content-create orange-text"></i>
+							</a>
 						</td>
 					</tr>
 

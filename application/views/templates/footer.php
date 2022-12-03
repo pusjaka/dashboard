@@ -325,11 +325,11 @@
                     		// get Delete Product
                     		$('.btn-delete').on('click', function () {
                     			// get data from button edit
-                    			const id = $(this).data('id');
+                    			const id = $(this).data('idH');
+                    			const base_url = 'http://localhost/kegiatan/hapus/'+id+'/ptpp';
                     			// Set data to Form Edit
-                    			$('.productID').val(id);
-                    			// Call Modal Edit
-                    			$('#deleteModal').modal('show');
+								document.getElementById("tombol-delete").href = 'http://localhost/kegiatan/hapus/'+id+'/ptpp'; 
+                    			//$('.delete-a').href(base_url+'/'+id);
                     		});
 
                     	});
@@ -369,7 +369,7 @@
                     			// Set data to Form Edit
                     			$('.productID').val(id);
                     			// Call Modal Edit
-                    			$('#deleteModal').modal('show');
+                    			$('#').modal('show');
                     		});
 
                     	});

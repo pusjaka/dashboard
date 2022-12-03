@@ -12,6 +12,11 @@ class AnggaranModel extends GLOBAL_Model
 		return $query->result(); // return berupa array objek
 	}
 
+	public function lihat_current_anggaran(){
+		$query = $this->db->query("SELECT * FROM anggaran WHERE year(tanggal_anggaran) = ".date('Y')." ORDER BY tanggal_anggaran DESC");
+		return $query->row(); // return berupa array objek
+	}
+
 	public function tambah_anggaran($data){
 		return parent::insert_with_status('anggaran',$data);
 	}

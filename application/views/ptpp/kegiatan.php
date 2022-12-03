@@ -55,6 +55,9 @@
 								data-completion="<?= $value->completion ?>" data-id="<?= $value->id ?>" data-update="<?= $value->keterangan ?>">
 									<i class="mdi-content-create orange-text"></i>
 								</a>
+								<a href="<?= base_url('kegiatan/hapus/'.$value->id.'/ptpp') ?>" class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-edit2" title="ubah data">
+									<i class="mdi-content-create orange-text"></i>
+								</a>
 							</div>
 						</td>
 					</tr>

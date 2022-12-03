@@ -121,6 +121,20 @@ class KegiatanController extends GLOBAL_Controller{
 		}
     }
 
+	public function hapus($id, $url){
+		$query = array(
+			'id' => $id
+		);
+		$hapus = parent::model('KegiatanModel')->hapus($url, $query);
+		if ($hapus > 0 ){
+			parent::alert('alert','sukses_hapus');
+			redirect('kegiatan-'.$url);
+		} else {
+			parent::alert('alert','gagal_hapus');
+			redirect('kegiatan-'.$url);
+		}
+	}
+
     public function simpananQurbanAqikah()
     {
         $data['title'] = 'Simpanan Aqikah/Qurban';
@@ -152,5 +166,7 @@ class KegiatanController extends GLOBAL_Controller{
 
         parent::template('simpanan/wadiah',$data);
     }
+
+
 
 }

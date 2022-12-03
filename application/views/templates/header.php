@@ -132,6 +132,8 @@
                                     </li>
                                     <li><a href="<?= base_url('anggaran')?>">Anggaran</a>
                                     </li>
+                                    <li><a href="<?= base_url('berkas')?>">Berkas</a>
+                                    </li>
                                     <li><a href="<?= base_url('persuratan')?>">Persuratan</a>
                                     </li>
                                     <li><a href="<?= base_url('kegiatan-tu')?>">Kegiatan TU</a>

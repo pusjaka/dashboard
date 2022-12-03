@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title><?= $title ?></title>
+	<title>PUSJAK LLATP</title>
 
 	<!-- Custom fonts for this template-->
 	<link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
@@ -28,83 +28,215 @@
 			display: none !important;
 		}
 	</style>
+
 </head>
 
-<body id="page-top" style="margin: 10px;">
-	<div class="container-fluid">
+<body id="page-top">
 
-		<!-- Page Heading -->
-		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
 
-			<h2 class="h3 mb-0 text-gray-800"><img style="width: 50px !important; height: 50px;"
-					src="<?= base_url('assets/images/logo_pusjak.png')?>" alt="pusjak logo"> Pusat Kebijakan Lalu Lintas, Angkutan dan Transportasi Perkotaan</h2>
-			<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+		<!-- Sidebar -->
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-		</div>
-		<div class="row">
-			<div class="col-xl-12 col-lg-12">
-				<div class="col-xl-12 col-lg-12">
-					<div class="card shadow mb-4">
-						<!-- Card Header - Dropdown -->
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Kegiatan Bidang Kebijakan Transportasi Perkotaan</h6>
-							<input type="text" id="searchInput3" class="col-4 form-control" placeholder="Cari"><input class="datepicker form-control col-lg-2" id="date-filter" type="date" value="11/17/2022">
-						</div>
-						<!-- Card Body -->
-						<div class="card-body">
-							<!-- <div class="chart-area">
-                            <canvas id="myAreaChart"></canvas>
-                            </div> -->
-							<div class="table-responsive" id="kegiatan">
-								<table class="table table-bordered" id="dataTable-kegiatan-pe" width="100%" cellspacing="0">
-									<thead>
-										<tr>
-											<th>Kegiatan</th>
-											<th>PIC</th>
-											<th>Tingkat Prioritas</th>
-											<th>Status</th>
-											<th>Timeline</th>
-											<th>Biaya</th>
-											<th>Completion</th>
-											<th>Deskripsi</th>
-											<th>Update Terakhir</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Kegiatan A</td>
-											<td>Pak Anang</td>
-											<td>High</td>
-											<td>In Progress</td>
-											<td>27/11/2022 - 29/11/2022</td>
-											<td>Rp 50,000,000</td>
-											<td>70%</td>
-											<td>Tahap Pemantauan</td>
-											<td>28/11/2022</td>
-										</tr>
-										<tr>
-											<td>Kegiatan B</td>
-											<td>Pak Anang</td>
-											<td>High</td>
-											<td>In Progress</td>
-											<td>27/11/2022 - 29/11/2022</td>
-											<td>Rp 50,000,000</td>
-											<td>70%</td>
-											<td>Tahap Pemantauan</td>
-											<td>28/11/2022</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+			<!-- Sidebar - Brand -->
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+				<div class="sidebar-brand-icon">
+					<img style="width: 50px !important; height: 50px;"
+						src="<?= base_url('assets/images/logo_pusjak.png')?>" alt="pusjak logo">
+				</div>
+				<div class="sidebar-brand-text mx-3">PUSJAK LLATP</div>
+			</a>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+					aria-expanded="true" aria-controls="collapseTwo">
+					<i class="fas fa-fw fa-eye"></i>
+					<span>Lihat Dashboard</span>
+				</a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="<?= base_url('dashboard')?>">Dashboard TU</a>
+						<a class="collapse-item" href="<?= base_url('dashboard-ptpp')?>">Dashboard KTP</a>
+						<a class="collapse-item" href="<?= base_url('dashboard-pe')?>">Dashboard LLA</a>
 					</div>
 				</div>
+			</li>
+			
+			<?php if($this->session->userdata('level') == 'staff') {?>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+			<li class="nav-item">
+                <a class="nav-link" href="<?= base_url('') ?>">
+                    <i class="fas fa-fw fa-edit"></i>
+                    <span>Admin Dashboard</span>
+                </a>
+            </li>
+			<?php } ?>
+
+			<li class="nav-item">
+                <a class="nav-link" href="<?= base_url('logout') ?>">
+                    <i class="fas fa-fw fa-door-open"></i>
+                    <span>Keluar</span>
+                </a>
+            </li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
+
+			<!-- Sidebar Toggler (Sidebar) -->
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+
+		</ul>
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+
+					</ul>
+
+				</nav>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+						<!-- <h2 class="h3 mb-0 text-gray-800"><img style="width: 50px !important; height: 50px;"
+								src="<?= base_url('assets/images/logo_pusjak.png')?>" alt="pusjak logo"> Pusat Kebijakan
+							Lalu
+							Lintas, Angkutan dan Transportasi Perkotaan</h2> -->
+						<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+	class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+
+					</div>
+					<div class="row">
+						<div class="col-xl-12 col-lg-12">
+							<div class="col-xl-12 col-lg-12">
+								<div class="card shadow mb-4">
+									<!-- Card Header - Dropdown -->
+									<div
+										class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+										<h6 class="m-0 font-weight-bold text-primary">Kegiatan Bidang Kebijakan Transportasi Perkotaan</h6>
+										<input type="text" id="searchInput3" class="col-4 form-control"
+											placeholder="Cari"><input class="datepicker form-control col-lg-2"
+											id="date-filter" type="date" value="11/17/2022">
+									</div>
+									<!-- Card Body -->
+									<div class="card-body">
+										<!-- <div class="chart-area">
+					<canvas id="myAreaChart"></canvas>
+					</div> -->
+										<div class="table-responsive" id="kegiatan">
+											<table class="table table-bordered" id="dataTable-kegiatan-pe" width="100%"
+												cellspacing="0">
+												<thead>
+													<tr>
+														<th>Kegiatan</th>
+														<th>PIC</th>
+														<th>Tingkat Prioritas</th>
+														<th>Status</th>
+														<th>Timeline</th>
+														<th>Biaya</th>
+														<th>Completion</th>
+														<th>Deskripsi Update</th>
+														<th>Update Terakhir</th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php foreach($kegiatan_ptpp as $row): ?>
+														<tr>
+															<td><?= $row->nama_kegiatan; ?></td>
+															<td><?= $row->PIC; ?></td>
+															<td><?= $row->tingkat_prioritas; ?></td>
+															<td><?= $row->progress; ?></td>
+															<td><?= $row->tanggal_kegiatan; ?> s/d <?= $row->tanggal_kegiatan_end; ?></td>
+															<td><?= $row->biaya; ?></td>
+															<td><?= $row->completion; ?></td>
+															<td><?= $row->keterangan; ?></td>
+															<td><?= $row->updated_at; ?></td>
+														</tr>
+													<?php endforeach; ?>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+				<!-- /.container-fluid -->
 
 			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2020</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
+
 		</div>
+		<!-- End of Content Wrapper -->
 
+	</div>
+	<!-- End of Page Wrapper -->
 
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top">
+		<i class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
@@ -132,15 +264,17 @@
 	<script src="<?= base_url('assets/js/demo/datatables-demo.js') ?>"></script>
 
 	<script>
-		$(document).ready(function(){
-			$("#date-filter").on('change', function(){
+		$(document).ready(function () {
+			$("#date-filter").on('change', function () {
 				var date = $('#date-filter').val();
-				if(date != ''){
+				if (date != '') {
 					$.ajax({
-						url:"<?= base_url('dashboard-ptpp-kegiatan-date')?>",
-						method:"POST",
-						data:{tanggal:date},
-						success:function(data){
+						url: "<?= base_url('dashboard-ptpp-kegiatan-date')?>",
+						method: "POST",
+						data: {
+							tanggal: date
+						},
+						success: function (data) {
 							$('#kegiatan').html(data);
 						}
 					});
@@ -153,17 +287,19 @@
 		setInterval(ajaxCall, 10000); //300000 MS == 5 minutes
 
 		function ajaxCall() {
-				var date = $('#date-filter').val();
-				if(date != ''){
-					$.ajax({
-						url:"<?= base_url('dashboard-ptpp-kegiatan-date')?>",
-						method:"POST",
-						data:{tanggal:date},
-						success:function(data){
-							$('#kegiatan').html(data);
-						}
-					});
-				}
+			var date = $('#date-filter').val();
+			if (date != '') {
+				$.ajax({
+					url: "<?= base_url('dashboard-ptpp-kegiatan-date')?>",
+					method: "POST",
+					data: {
+						tanggal: date
+					},
+					success: function (data) {
+						$('#kegiatan').html(data);
+					}
+				});
+			}
 		}
 	</script>
 

@@ -13,7 +13,7 @@ class KegiatanModel extends GLOBAL_Model
 	}
 
 	public function lihat_semua_kegiatan_ptpp(){
-		$query = $this->db->query("SELECT * FROM kegiatan_ptpp ORDER BY tanggal_kegiatan DESC");
+		$query = $this->db->query("SELECT * FROM kegiatan_ptpp ORDER BY id DESC");
 		return $query->result(); // return berupa array objek
 	}
 
@@ -44,5 +44,9 @@ class KegiatanModel extends GLOBAL_Model
 
 	public function tambah_kegiatan_pe($data){
 		return parent::insert_with_status('kegiatan_pe',$data);
+	}
+
+	public function hapus($url, $query){
+		return parent::delete_row_with_status('kegiatan_'.$url, $query);
 	}
 }
