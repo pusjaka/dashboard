@@ -53,4 +53,18 @@ class BerkasController extends GLOBAL_Controller{
 		}
     }
 
+	public function hapus($id){
+		$query = array(
+			'id' => $id
+		);
+		$hapus = parent::model('BerkasModel')->hapus($query);
+		if ($hapus > 0 ){
+			parent::alert('alert','sukses_hapus');
+			redirect('berkas');
+		} else {
+			parent::alert('alert','gagal_hapus');
+			redirect('berkas');
+		}
+	}
+
 }

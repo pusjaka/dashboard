@@ -11,7 +11,7 @@
     <title><?= $title?> - Sistem Informasi PUSJAK LLATP</title>
 
     <!-- Favicons-->
-    <link rel="icon" href="<?= base_url('assets/images/favicon/simkopsis-icon.png')?>" sizes="32x32">
+    <link rel="icon" href="<?= base_url('assets/images/logo_pusjak.png')?>" sizes="32x32">
     <!-- Favicons-->
     <link rel="apple-touch-icon-precomposed" href="<?= base_url('assets/images/favicon/apple-touch-icon-152x152.png')?>">
     <!-- For iPhone -->
@@ -39,6 +39,11 @@
     <link rel="stylesheet" href="<?=base_url('assets/css/plugins/material.min.css')?>" type="text/css" media="screen,projection">
     <link rel="stylesheet" href="<?= base_url('assets/css/plugins/dataTables.material.min.css')?>" type="text/css" media="screen,projection">
 
+    <style>
+        label{
+            color: #030303 !important;
+        }
+    </style>
 
 </head>
 

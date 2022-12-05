@@ -40,6 +40,12 @@
                                  title="ubah data">
 									<i class="mdi-content-create orange-text"></i>
 								</a>
+                                
+                                <a href="#modal-hapus"
+									class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-delete-tu"
+									title="hapus data" data-id="<?= $value->id ?>" data-url="berkas">
+									<i class="mdi-action-delete red-text"></i>
+								</a>
 						</div>
                     </td>
                 </tr>
@@ -48,24 +54,6 @@
 				?>
                 </tbody>
             </table>
-
-                <!-- Modal delete -->
-                <div id="delete" class="modal">
-                    <div class="modal-content">
-                        <h4 class="red-text text-lighten-1">
-                            <i class="mdi-action-info-outline"></i> Yakin ingin menghapus barang ?
-                        </h4>
-                        <div class="modal-content">
-                            <h4>
-                                item yang anda hapus akan tersimpan ke data arsip
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="waves-effect waves-red btn-flat modal-action modal-close">lanjutkan</a>
-                        <a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
-                    </div>
-                </div>
         </div>
     </div>
 </div>
@@ -86,12 +74,6 @@
                 <div class="col s12 m12 center">
                     <h5 class="more-text">Tambah Data Berkas</h5>
                     <h5 class="divider"></h5>
-                </div>
-
-                <div class="col s12 m1">
-                    <h3 class="grey-text">
-                        <i class="mdi-action-perm-identity"></i>
-                    </h3>
                 </div>
             </div>
 
@@ -123,12 +105,6 @@
                     <h5 class="more-text">Update Data Berkas</h5>
                     <h5 class="divider"></h5>
                 </div>
-
-                <div class="col s12 m1">
-                    <h3 class="grey-text">
-                        <i class="mdi-action-perm-identity"></i>
-                    </h3>
-                </div>
             </div>
 
             <input type="hidden" name="id_berkas" class="id">
@@ -136,12 +112,12 @@
             <div class="row">
                 <div class="input-field col s12 m6">
                     <label for="total_anggaran">Nama Berkas</label>
-                    <input type="text" name="nama_berkas" class="ta">
+                    <input type="text" placeholder="Masukkan Nama Berkas" name="nama_berkas" class="ta">
                 </div>
 
                 <div class="input-field col s12 m6">
                     <label for="realisasi_anggaran">URL Berkas</label>
-                    <input type="text" class="real" name="url_berkas">
+                    <input type="text" placeholder="Masukkan Url Berkas" class="real" name="url_berkas">
                 </div>
             </div>
         </div>
@@ -151,3 +127,22 @@
         </div>
     <?=form_close()?>
 </div>
+
+<!-- Modal delete -->
+<div id="modal-hapus" class="modal">
+	<div class="modal-content">
+		<h4 class="red-text text-lighten-1">
+			<i class="mdi-action-info-outline"></i> Yakin ingin menghapus data ?
+		</h4>
+		<div class="modal-content">
+			<h4>
+				item akan terhapus dari database dan tidak dapat dipulihkan kembali
+			</h4>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="" id="tombol-delete" class="waves-effect waves-red btn-flat modal-action modal-close delete-a">Hapus</a>
+		<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
+	</div>
+</div>
+

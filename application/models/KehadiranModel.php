@@ -26,6 +26,6 @@ class KehadiranModel extends GLOBAL_Model
 	}
 
 	public function hapus($query){
-		return parent::delete_row_with_status('simkopsis_anggota',$query);
+		return parent::delete_row_with_status('kehadiran',$query);
 	}
 }

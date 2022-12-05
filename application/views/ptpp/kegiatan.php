@@ -55,8 +55,10 @@
 								data-completion="<?= $value->completion ?>" data-id="<?= $value->id ?>" data-update="<?= $value->keterangan ?>">
 									<i class="mdi-content-create orange-text"></i>
 								</a>
-								<a href="<?= base_url('kegiatan/hapus/'.$value->id.'/ptpp') ?>" class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-edit2" title="ubah data">
-									<i class="mdi-content-create orange-text"></i>
+								<a href="#modal-hapus"
+									class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-delete"
+									title="hapus data" data-id="<?= $value->id ?>" data-url="ptpp">
+									<i class="mdi-action-delete red-text"></i>
 								</a>
 							</div>
 						</td>
@@ -116,23 +118,21 @@
 		<div class="row">
 			<div class="input-field col s12 m6">
 				<!-- <label for="tanggal_kehadiran">Tanggal Kehadiran</label> -->
-				<input type="date" name="tanggal_kehadiran" required>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="input-field col s12 m6">
 				<label for="nama_kegiatan">Nama Kegiatan</label>
-				<input type="text" name="nama_kegiatan">
+				<input type="text" placeholder="Masukkan Nama Kegiatan" name="nama_kegiatan">
 			</div>
 
 			<div class="input-field col s12 m6">
 				<label for="nama_kegiatan">PIC</label>
-				<input type="text" name="pic">
+				<input type="text" placeholder="Masukkan Nama PIC" name="pic">
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="progress">Status</label>
 				<select name="progress">
 					<option value="In Progress">Progress</option>
 					<option value="Selesai">Selesai</option>
@@ -141,11 +141,10 @@
 
 			<div class="input-field col s12 m6">
 				<label for="progress">Completion</label>
-				<input type="number" name="completion">
+				<input type="number" placeholder="0" name="completion">
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="progress">Tingkat Prioritas</label>
 				<select name="prioritas">
 					<option value="Low">Low</option>
 					<option value="Medium">Medium</option>
@@ -155,22 +154,22 @@
 
 			<div class="input-field col s12 m6">
 				<label for="nama_kegiatan">Biaya</label>
-				<input type="text" name="biaya">
+				<input type="text" placeholder="Masukkan Nominal" name="biaya">
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="tanggal_kegiatan">Tanggal Awal Kegiatan</label>
+				<p style="font-size: 9pt;">Tanggal Awal Kegiatan</p>
 				<input type="date" name="tanggal_kegiatan" required>
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="tanggal_kegiatan_end">Tanggal Akhir Kegiatan</label>
+				<p style="font-size: 9pt;">Tanggal Akhir Kegiatan</p>
 				<input type="date" name="tanggal_kegiatan_end" required>
 			</div>
 			
 			<div class="input-field col s12 m6">
-				<label for="keterangan">Keterangan</label>
-				<textarea name="keterangan" id="" cols="30" rows="10"></textarea>
+				<label for="keterangan">Update Terakhir</label>
+				<textarea name="keterangan" id="" placeholder="Masukkan Keterangan" cols="30" rows="10"></textarea>
 			</div>
 		</div>
 	</div>
@@ -191,12 +190,6 @@
 				<h5 class="more-text">Update Data Kegiatan</h5>
 				<h5 class="divider"></h5>
 			</div>
-
-			<div class="col s12 m1">
-				<h3 class="grey-text">
-					<i class="mdi-action-perm-identity"></i>
-				</h3>
-			</div>
 		</div>
 
 		<div class="row">
@@ -209,16 +202,15 @@
 		<div class="row">
 			<div class="input-field col s12 m6">
 				<label for="nama_kegiatan">Nama Kegiatan</label>
-				<input type="text" class="kegiatan" name="nama_kegiatan">
+				<input type="text" class="kegiatan" placeholder="Masukkan Nama Kegiatan" name="nama_kegiatan">
 			</div>
 
 			<div class="input-field col s12 m6">
 				<label for="nama_kegiatan">PIC</label>
-				<input type="text" class="pic" name="pic">
+				<input type="text" placeholder="Masukkan Nama PIC" class="pic" name="pic">
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="progress">Status</label>
 				<select name="progress">
 					<option value="In Progress">Progress</option>
 					<option value="Selesai">Selesai</option>
@@ -227,11 +219,10 @@
 
 			<div class="input-field col s12 m6">
 				<label for="progress">Completion</label>
-				<input type="number" class="completion" name="completion">
+				<input type="number" placeholder="0" class="completion" name="completion">
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="progress">Tingkat Prioritas</label>
 				<select name="prioritas">
 					<option value="Low">Low</option>
 					<option value="Medium">Medium</option>
@@ -241,22 +232,22 @@
 
 			<div class="input-field col s12 m6">
 				<label for="nama_kegiatan">Biaya</label>
-				<input type="text" class="biaya" name="biaya">
+				<input type="text" placeholder="0" class="biaya" name="biaya">
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="tanggal_kegiatan">Tanggal Awal Kegiatan</label>
+				<p style="font-size: 9pt;">Tanggal Awal Kegiatan</p>
 				<input type="date" class="date_awal" name="tanggal_kegiatan" required>
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="tanggal_kegiatan_end">Tanggal Akhir Kegiatan</label>
+				<p style="font-size: 9pt;">Tanggal Akhir Kegiatan</p>
 				<input type="date" class="date_akhir" name="tanggal_kegiatan_end" required>
 			</div>
 			
 			<div class="input-field col s12 m6">
-				<label for="keterangan">Keterangan</label>
-				<textarea name="keterangan" class="keterangan" id="" cols="30" rows="10"></textarea>
+				<label for="keterangan">Update Terakhir</label>
+				<textarea name="keterangan" placeholder="Masukkan Update" class="keterangan" id="" cols="30" rows="10"></textarea>
 			</div>
 		</div>
 	</div>
@@ -266,4 +257,22 @@
 		<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
 	</div>
 	<?=form_close()?>
+</div>
+
+<!-- Modal delete -->
+<div id="modal-hapus" class="modal">
+	<div class="modal-content">
+		<h4 class="red-text text-lighten-1">
+			<i class="mdi-action-info-outline"></i> Yakin ingin menghapus data ?
+		</h4>
+		<div class="modal-content">
+			<h4>
+				item akan terhapus dari database dan tidak dapat dipulihkan kembali
+			</h4>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="" id="tombol-delete" class="waves-effect waves-red btn-flat modal-action modal-close delete-a">Hapus</a>
+		<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
+	</div>
 </div>

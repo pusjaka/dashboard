@@ -59,7 +59,7 @@ class KegiatanController extends GLOBAL_Controller{
 
     public function kegiatan_ptpp()
     {
-    	if (isset($_POST['simpan'])){
+    	if (isset($_POST['simpan']) && !isset($_POST['id_kegiatan'])){
     		$data = array(
     			'nama_kegiatan' => parent::post('nama_kegiatan'),
     			'PIC' => parent::post('pic'),
@@ -81,6 +81,31 @@ class KegiatanController extends GLOBAL_Controller{
 				parent::alert('alert','gagal_tambah');
 				redirect('kegiatan-ptpp');
 			}
+		} else if (isset($_POST['simpan']) && isset($_POST['id_kegiatan'])){
+			$date = new DateTime("now", new DateTimeZone('Asia/Jakarta') );
+			
+			$data = array(
+    			'nama_kegiatan' => parent::post('nama_kegiatan'),
+    			'PIC' => parent::post('pic'),
+    			'tingkat_prioritas' => parent::post('prioritas'),
+    			'biaya' => parent::post('biaya'),
+    			'progress' => parent::post('progress'),
+    			'keterangan' => parent::post('keterangan'),
+    			'completion' => parent::post('completion'),
+    			'tanggal_kegiatan' => parent::post('tanggal_kegiatan'),
+    			'tanggal_kegiatan_end' => parent::post('tanggal_kegiatan_end'),
+				'updated_at' => $date->format('Y-m-d H:i:s'),
+			);
+
+			$simpan = parent::model('KegiatanModel')->update_kegiatan_ptpp($_POST['id_kegiatan'], $data);
+
+			if ($simpan > 0 ){
+				parent::alert('alert','sukses_tambah');
+				redirect('kegiatan-ptpp');
+			} else {
+				parent::alert('alert','gagal_tambah');
+				redirect('kegiatan-ptpp');
+			}
 		} else {
 			$data['title'] = 'Kegiatan KTP';
 			$data['kegiatan'] = parent::model('KegiatanModel')->lihat_semua_kegiatan_ptpp();
@@ -91,7 +116,7 @@ class KegiatanController extends GLOBAL_Controller{
 
     public function kegiatan_pe()
     {
-    	if (isset($_POST['simpan'])){
+    	if (isset($_POST['simpan']) && !isset($_POST['id_kegiatan'])){
 			$data = array(
     			'nama_kegiatan' => parent::post('nama_kegiatan'),
     			'PIC' => parent::post('pic'),
@@ -105,6 +130,31 @@ class KegiatanController extends GLOBAL_Controller{
 			);
 
 			$simpan = parent::model('KegiatanModel')->tambah_kegiatan_pe($data);
+
+			if ($simpan > 0 ){
+				parent::alert('alert','sukses_tambah');
+				redirect('kegiatan-pe');
+			} else {
+				parent::alert('alert','gagal_tambah');
+				redirect('kegiatan-pe');
+			}
+		} else if (isset($_POST['simpan']) && isset($_POST['id_kegiatan'])){
+			$date = new DateTime("now", new DateTimeZone('Asia/Jakarta') );
+			
+			$data = array(
+    			'nama_kegiatan' => parent::post('nama_kegiatan'),
+    			'PIC' => parent::post('pic'),
+    			'tingkat_prioritas' => parent::post('prioritas'),
+    			'biaya' => parent::post('biaya'),
+    			'progress' => parent::post('progress'),
+    			'keterangan' => parent::post('keterangan'),
+    			'completion' => parent::post('completion'),
+    			'tanggal_kegiatan' => parent::post('tanggal_kegiatan'),
+    			'tanggal_kegiatan_end' => parent::post('tanggal_kegiatan_end'),
+				'updated_at' => $date->format('Y-m-d H:i:s'),
+			);
+
+			$simpan = parent::model('KegiatanModel')->update_kegiatan_pe($_POST['id_kegiatan'], $data);
 
 			if ($simpan > 0 ){
 				parent::alert('alert','sukses_tambah');

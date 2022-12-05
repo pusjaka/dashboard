@@ -43,90 +43,18 @@ class SuratController extends GLOBAL_Controller{
 		}
     }
 
-    public function kegiatan_ptpp()
-    {
-    	if (isset($_POST['simpan'])){
-    		$data = array(
-    			'nama_kegiatan' => parent::post('nama_kegiatan'),
-    			'progress' => parent::post('progress'),
-    			'keterangan' => parent::post('keterangan'),
-    			'tanggal_kegiatan' => parent::post('tanggal_kegiatan'),
-			);
-
-			$simpan = parent::model('KegiatanModel')->tambah_kegiatan_ptpp($data);
-
-			if ($simpan > 0 ){
-				parent::alert('alert','sukses_tambah');
-				redirect('kegiatan-ptpp');
-			} else {
-				parent::alert('alert','gagal_tambah');
-				redirect('kegiatan-ptpp');
-			}
+	public function hapus($id){
+		$query = array(
+			'id' => $id
+		);
+		$hapus = parent::model('SuratModel')->hapus($query);
+		if ($hapus > 0 ){
+			parent::alert('alert','sukses_hapus');
+			redirect('persuratan');
 		} else {
-			$data['title'] = 'Kegiatan PTPP';
-			$data['kegiatan'] = parent::model('KegiatanModel')->lihat_semua_kegiatan_ptpp();
-
-			parent::template('ptpp/kegiatan',$data);
+			parent::alert('alert','gagal_hapus');
+			redirect('persuratan');
 		}
-    }
-
-    public function kegiatan_pe()
-    {
-    	if (isset($_POST['simpan'])){
-    		$data = array(
-    			'nama_kegiatan' => parent::post('nama_kegiatan'),
-    			'progress' => parent::post('progress'),
-    			'keterangan' => parent::post('keterangan'),
-    			'tanggal_kegiatan' => parent::post('tanggal_kegiatan'),
-			);
-
-			$simpan = parent::model('KegiatanModel')->tambah_kegiatan_pe($data);
-
-			if ($simpan > 0 ){
-				parent::alert('alert','sukses_tambah');
-				redirect('kegiatan-pe');
-			} else {
-				parent::alert('alert','gagal_tambah');
-				redirect('kegiatan-pe');
-			}
-		} else {
-			$data['title'] = 'Kegiatan PE';
-			$data['kegiatan'] = parent::model('KegiatanModel')->lihat_semua_kegiatan_pe();
-
-			parent::template('pe/kegiatan',$data);
-		}
-    }
-
-    public function simpananQurbanAqikah()
-    {
-        $data['title'] = 'Simpanan Aqikah/Qurban';
-        $data['aqikahQurban'] = parent::model('SimpananModel')->lihat_semua()->result_array();
-
-        parent::template('simpanan/aqikahQurban',$data);
-    }
-
-    public function simpananUmrah()
-    {
-        $data['title'] = 'Simpanan Aqikah/Qurban';
-        $data['umrah'] = parent::model('SimpananModel')->lihat_semua()->result_array();
-
-        parent::template('simpanan/umrah',$data);
-    }
-
-    public function simpananIdulFitri()
-    {
-        $data['title'] = 'Simpanan Aqikah/Qurban';
-        $data['idulFitri'] = parent::model('SimpananModel')->lihat_semua()->result_array();
-
-        parent::template('simpanan/idulFitri',$data);
-    }
-
-    public function simpananWadiah()
-    {
-        $data['title'] = 'Simpanan Aqikah/Qurban';
-        $data['wadiah'] = parent::model('SimpananModel')->lihat_semua()->result_array();
-
-        parent::template('simpanan/wadiah',$data);
-    }
+	}
 
 }

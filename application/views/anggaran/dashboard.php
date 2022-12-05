@@ -6,12 +6,6 @@
                     <div class="col s6 m6 l6">
                         <h4 class="cardbox-text light left margin">Daftar Anggaran</h4>
                     </div>
-                    <!--                    <div class="col s6 m6 l6">-->
-                    <!--                        <a href="#tambah-kategori" class="btn-flat white-text blue right waves-effect waves-light modal-trigger">-->
-                    <!--                            tambah kategori-->
-                    <!--                        </a>-->
-                    <!--                    </div>-->
-
                 </div>
             </div>
 
@@ -40,6 +34,12 @@
                                  data-id="<?= $value->id;?>" data-date="<?= $value->tanggal_anggaran;?>" data-ta="<?= $value->total_anggaran;?>" data-real="<?= $value->realisasi_anggaran;?>" title="ubah data">
 									<i class="mdi-content-create orange-text"></i>
 								</a>
+
+                                <a href="#modal-hapus"
+									class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-delete-tu"
+									title="hapus data" data-id="<?= $value->id ?>" data-url="anggaran">
+									<i class="mdi-action-delete red-text"></i>
+								</a>
 						</div>
                     </td>
                 </tr>
@@ -48,24 +48,6 @@
 				?>
                 </tbody>
             </table>
-
-                <!-- Modal delete -->
-                <div id="delete" class="modal">
-                    <div class="modal-content">
-                        <h4 class="red-text text-lighten-1">
-                            <i class="mdi-action-info-outline"></i> Yakin ingin menghapus barang ?
-                        </h4>
-                        <div class="modal-content">
-                            <h4>
-                                item yang anda hapus akan tersimpan ke data arsip
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="waves-effect waves-red btn-flat modal-action modal-close">lanjutkan</a>
-                        <a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
-                    </div>
-                </div>
         </div>
     </div>
 </div>
@@ -87,17 +69,11 @@
                     <h5 class="more-text">Tambah Data Anggaran</h5>
                     <h5 class="divider"></h5>
                 </div>
-
-                <div class="col s12 m1">
-                    <h3 class="grey-text">
-                        <i class="mdi-action-perm-identity"></i>
-                    </h3>
-                </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12 m6">
-                    <!-- <label for="tanggal_kehadiran">Tanggal Kehadiran</label> -->
+                    <p for="tanggal_kehadiran">Tanggal Kehadiran</p>
                     <input type="date" name="tanggal_anggaran" required>
                 </div>
             </div>
@@ -105,12 +81,12 @@
             <div class="row">
                 <div class="input-field col s12 m6">
                     <label for="nama_kegiatan">Total Anggaran</label>
-                    <input type="text" name="total_anggaran">
+                    <input type="text" placeholder="Masukkan Nominal" class="validate" name="total_anggaran" required>
                 </div>
 
                 <div class="input-field col s12 m6">
                     <label for="progress">Realisasi Anggaran</label>
-                    <input type="text" name="realisasi_anggaran">
+                    <input type="text" placeholder="Masukkan Nominal" class="validate" name="realisasi_anggaran" required>
                 </div>
             </div>
         </div>
@@ -141,20 +117,20 @@
             <div class="row">
                 <div class="input-field col s12 m6">
                     <input type="hidden" name="id_anggaran" class="id">
-                    <!-- <label for="tanggal_kehadiran">Tanggal Kehadiran</label> -->
+                    <p for="tanggal_kehadiran">Tanggal Kehadiran</p>
                     <input type="date" class="tanggal" name="tanggal_anggaran" required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12 m6">
-                    <label for="total_anggaran">Total Anggaran</label>
-                    <input type="text" name="total_anggaran" class="ta">
+                    <label class="active" for="total_anggaran">Total Anggaran</label>
+                    <input type="text" name="total_anggaran" placeholder="Masukkan Nominal" class="ta validate" required>
                 </div>
 
                 <div class="input-field col s12 m6">
-                    <label for="realisasi_anggaran">Realisasi Anggaran</label>
-                    <input type="text" class="real" name="realisasi_anggaran">
+                    <label class="active" for="realis">Realisasi Anggaran</label>
+                    <input type="text" class="real validate" placeholder="Masukkan Nominal" id="realis" name="realisasi_anggaran" required>
                 </div>
             </div>
         </div>
@@ -163,4 +139,22 @@
             <a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
         </div>
     <?=form_close()?>
+</div>
+
+<!-- Modal delete -->
+<div id="modal-hapus" class="modal">
+	<div class="modal-content">
+		<h4 class="red-text text-lighten-1">
+			<i class="mdi-action-info-outline"></i> Yakin ingin menghapus data ?
+		</h4>
+		<div class="modal-content">
+			<h4>
+				item akan terhapus dari database dan tidak dapat dipulihkan kembali
+			</h4>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="" id="tombol-delete" class="waves-effect waves-red btn-flat modal-action modal-close delete-a">Hapus</a>
+		<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
+	</div>
 </div>

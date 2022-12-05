@@ -243,14 +243,14 @@
                     		});
 
                     		// get Delete Product
-                    		$('.btn-delete').on('click', function () {
-                    			// get data from button edit
-                    			const id = $(this).data('id');
-                    			// Set data to Form Edit
-                    			$('.productID').val(id);
-                    			// Call Modal Edit
-                    			$('#deleteModal').modal('show');
-                    		});
+                    		// $('.btn-delete').on('click', function () {
+                    		// 	// get data from button edit
+                    		// 	const id = $(this).data('id');
+                    		// 	// Set data to Form Edit
+                    		// 	$('.productID').val(id);
+                    		// 	// Call Modal Edit
+                    		// 	$('#deleteModal').modal('show');
+                    		// });
 
                     	});
                     </script>
@@ -279,14 +279,14 @@
                     		});
 
                     		// get Delete Product
-                    		$('.btn-delete').on('click', function () {
-                    			// get data from button edit
-                    			const id = $(this).data('id');
-                    			// Set data to Form Edit
-                    			$('.productID').val(id);
-                    			// Call Modal Edit
-                    			$('#deleteModal').modal('show');
-                    		});
+                    		// $('.btn-delete').on('click', function () {
+                    		// 	// get data from button edit
+                    		// 	const id = $(this).data('id');
+                    		// 	// Set data to Form Edit
+                    		// 	$('.productID').val(id);
+                    		// 	// Call Modal Edit
+                    		// 	$('#deleteModal').modal('show');
+                    		// });
 
                     	});
                     </script>
@@ -324,11 +324,27 @@
 
                     		// get Delete Product
                     		$('.btn-delete').on('click', function () {
+								console.log("button delete triggered!");
                     			// get data from button edit
-                    			const id = $(this).data('idH');
-                    			const base_url = 'http://localhost/kegiatan/hapus/'+id+'/ptpp';
+                    			const id = $(this).data('id');
+								const base = '<?= base_url('/') ?>';
+								const url = $(this).data('url');
+                    			const base_url = base+'kegiatan/hapus/'+id+'/'+url;
                     			// Set data to Form Edit
-								document.getElementById("tombol-delete").href = 'http://localhost/kegiatan/hapus/'+id+'/ptpp'; 
+								$('.delete-a').attr("href", base_url); 
+                    			//$('.delete-a').href(base_url+'/'+id);
+                    		});
+
+							// get Delete Product
+                    		$('.btn-delete-tu').on('click', function () {
+								console.log("button delete triggered!");
+                    			// get data from button edit
+                    			const id = $(this).data('id');
+								const base = '<?= base_url('/') ?>';
+								const url = $(this).data('url');
+                    			const base_url = base+url+'/hapus/'+id;
+                    			// Set data to Form Edit
+								$('.delete-a').attr("href", base_url); 
                     			//$('.delete-a').href(base_url+'/'+id);
                     		});
 
@@ -363,14 +379,14 @@
                     		});
 
                     		// get Delete Product
-                    		$('.btn-delete').on('click', function () {
-                    			// get data from button edit
-                    			const id = $(this).data('id');
-                    			// Set data to Form Edit
-                    			$('.productID').val(id);
-                    			// Call Modal Edit
-                    			$('#').modal('show');
-                    		});
+                    		// $('.btn-delete').on('click', function () {
+                    		// 	// get data from button edit
+                    		// 	const id = $(this).data('id');
+                    		// 	// Set data to Form Edit
+                    		// 	$('.productID').val(id);
+                    		// 	// Call Modal Edit
+                    		// 	$('#').modal('show');
+                    		// });
 
                     	});
                     </script>
@@ -409,14 +425,14 @@
                     		});
 
                     		// get Delete Product
-                    		$('.btn-delete').on('click', function () {
-                    			// get data from button edit
-                    			const id = $(this).data('id');
-                    			// Set data to Form Edit
-                    			$('.productID').val(id);
-                    			// Call Modal Edit
-                    			$('#deleteModal').modal('show');
-                    		});
+                    		// $('.btn-delete').on('click', function () {
+                    		// 	// get data from button edit
+                    		// 	const id = $(this).data('id');
+                    		// 	// Set data to Form Edit
+                    		// 	$('.productID').val(id);
+                    		// 	// Call Modal Edit
+                    		// 	$('#deleteModal').modal('show');
+                    		// });
 
                     	});
                     </script>
@@ -455,14 +471,14 @@
                     		});
 
                     		// get Delete Product
-                    		$('.btn-delete').on('click', function () {
-                    			// get data from button edit
-                    			const id = $(this).data('id');
-                    			// Set data to Form Edit
-                    			$('.productID').val(id);
-                    			// Call Modal Edit
-                    			$('#deleteModal').modal('show');
-                    		});
+                    		// $('.btn-delete').on('click', function () {
+                    		// 	// get data from button edit
+                    		// 	const id = $(this).data('id');
+                    		// 	// Set data to Form Edit
+                    		// 	$('.productID').val(id);
+                    		// 	// Call Modal Edit
+                    		// 	$('#deleteModal').modal('show');
+                    		// });
 
                     	});
                     </script>

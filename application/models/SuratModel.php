@@ -20,4 +20,9 @@ class SuratModel extends GLOBAL_Model
 	public function tambah_surat($data){
 		return parent::insert_with_status('surat',$data);
 	}
+
+	
+	public function hapus($query){
+		return parent::delete_row_with_status('surat',$query);
+	}
 }

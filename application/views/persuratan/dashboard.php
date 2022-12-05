@@ -50,27 +50,15 @@
                                  data-fu="<?= $value->follow_up ?>" data-url="<?= $value->url_surat ?>">
 									<i class="mdi-content-create orange-text"></i>
 								</a>
+
+                                <a href="#modal-hapus"
+									class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-delete-tu"
+									title="hapus data" data-id="<?= $value->id ?>" data-url="persuratan">
+									<i class="mdi-action-delete red-text"></i>
+								</a>
 							</div>
 						</td>
 					</tr>
-
-					<!-- Modal delete -->
-					<div id="delete" class="modal">
-						<div class="modal-content">
-							<h4 class="red-text text-lighten-1">
-								<i class="mdi-action-info-outline"></i> Yakin ingin menghapus barang ?
-							</h4>
-							<div class="modal-content">
-								<h4>
-									item yang anda hapus akan tersimpan ke data arsip
-								</h4>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<a href="#!" class="waves-effect waves-red btn-flat modal-action modal-close">lanjutkan</a>
-							<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
-						</div>
-					</div>
 					<?php
 				endforeach;
 				?>
@@ -115,33 +103,34 @@
 		<div class="row">
 			<div class="input-field col s12 m6">
 				<label for="nama_kegiatan">Unit Kerja</label>
-				<input type="text" name="unit_kerja">
+				<input type="text" placeholder="Masukkan Unit Kerja" name="unit_kerja">
 			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="progress">Uraian</label>
-				<textarea name="uraian" id="" cols="30" rows="10"></textarea>
-			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="progress">Follow Up</label>
-				<textarea name="follow_up" id="" cols="30" rows="10"></textarea>
-			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="keterangan">Disposisi</label>
-				<input type="text" name="disposisi">
-			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="tanggal_kegiatan">Catatan</label>
-				<textarea name="catatan" id="" cols="30" rows="10"></textarea>
-			</div>
-
+			
 			<div class="input-field col s12 m6">
 				<label for="tanggal_kegiatan">Url Surat</label>
-				<input type="text" name="url_surat">
+				<input type="text" placeholder="Masukkan Url Surat" name="url_surat">
 			</div>
+	
+			<div class="input-field col s12 m6">
+				<label for="keterangan">Disposisi</label>
+				<input type="text" placeholder="Masukkan Disposisi" name="disposisi">
+			</div>
+			<br>
+			<div class="input-field col s12 m12">
+				<label for="progress">Uraian</label>
+				<textarea name="uraian" id="" placeholder="Masukkan Uraian" cols="30" rows="10"></textarea>
+			</div>
+			<br>
+			<div class="input-field col s12 m12" style="margin-top: 25px;">
+				<label for="progress">Follow Up</label>
+				<textarea name="follow_up" id="" placeholder="Masukkan Follow Up" cols="30" rows="10"></textarea>
+			</div>
+			<br>
+			<div class="input-field col s12 m12" style="margin-top: 25px;">
+				<label for="tanggal_kegiatan">Catatan</label>
+				<textarea name="catatan" id="" placeholder="Masukkan Catatan" cols="30" rows="10"></textarea>
+			</div>
+
 		</div>
 	</div>
 	<div class="modal-footer">
@@ -172,7 +161,7 @@
 		<div class="row">
 			<div class="input-field col s12 m6">
 				<input type="hidden" name="id_surat" class="id">
-				<!-- <label for="tanggal_kehadiran">Tanggal Kehadiran</label> -->
+				<p>Tanggal Surat</p>
 				<input type="date" class="tanggal" name="tanggal_surat" required>
 			</div>
 		</div>
@@ -180,33 +169,34 @@
 		<div class="row">
 			<div class="input-field col s12 m6">
 				<label for="nama_kegiatan">Unit Kerja</label>
-				<input type="text" class="uk" name="unit_kerja">
+				<input type="text" class="uk" placeholder="Masukkan Unit Kerja" name="unit_kerja">
 			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="progress">Uraian</label>
-				<textarea name="uraian" class="uraian" id="" cols="30" rows="10"></textarea>
-			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="progress">Follow Up</label>
-				<textarea name="follow_up" class="fu" id="" cols="30" rows="10"></textarea>
-			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="keterangan">Disposisi</label>
-				<input type="text" class="disposisi" name="disposisi">
-			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="tanggal_kegiatan">Catatan</label>
-				<textarea name="catatan" class="catatan" id="" cols="30" rows="10"></textarea>
-			</div>
-
+			
 			<div class="input-field col s12 m6">
 				<label for="tanggal_kegiatan">Url Surat</label>
-				<input type="text" class="url" name="url_surat">
+				<input type="text" placeholder="Masukkan Url Surat" class="url" name="url_surat">
 			</div>
+			
+			<div class="input-field col s12 m6">
+				<label for="keterangan">Disposisi</label>
+				<input type="text" class="disposisi" placeholder="Masukkan Disposisi" name="disposisi">
+			</div>
+
+			<div class="input-field col s12 m12">
+				<label for="progress">Uraian</label>
+				<textarea name="uraian" class="uraian" placeholder="Masukkan Uraian" id="" cols="30" rows="10"></textarea>
+			</div>
+
+			<div class="input-field col s12 m12" style="margin-top: 25px;">
+				<label for="progress">Follow Up</label>
+				<textarea name="follow_up" class="fu" id="" placeholder="Masukkan Follow Up" cols="30" rows="10"></textarea>
+			</div>
+
+			<div class="input-field col s12 m12" style="margin-top: 25px;">
+				<label for="tanggal_kegiatan">Catatan</label>
+				<textarea name="catatan" class="catatan" placeholder="Masukkan Catatan" id="" cols="30" rows="10"></textarea>
+			</div>
+
 		</div>
 	</div>
 	<div class="modal-footer">
@@ -215,4 +205,23 @@
 		<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
 	</div>
 	<?=form_close()?>
+</div>
+
+
+<!-- Modal delete -->
+<div id="modal-hapus" class="modal">
+	<div class="modal-content">
+		<h4 class="red-text text-lighten-1">
+			<i class="mdi-action-info-outline"></i> Yakin ingin menghapus data ?
+		</h4>
+		<div class="modal-content">
+			<h4>
+				item akan terhapus dari database dan tidak dapat dipulihkan kembali
+			</h4>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="" id="tombol-delete" class="waves-effect waves-red btn-flat modal-action modal-close delete-a">Hapus</a>
+		<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
+	</div>
 </div>

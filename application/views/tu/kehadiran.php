@@ -6,11 +6,6 @@
 					<div class="col s6 m6 l6">
 						<h4 class="cardbox-text light left margin">Daftar Kehadiran</h4>
 					</div>
-					<!--                    <div class="col s6 m6 l6">-->
-					<!--                        <a href="#tambah-kategori" class="btn-flat white-text blue right waves-effect waves-light modal-trigger">-->
-					<!--                            tambah kategori-->
-					<!--                        </a>-->
-					<!--                    </div>-->
 
 				</div>
 			</div>
@@ -46,6 +41,12 @@
                                 data-id="<?= $value->id;?>" data-date="<?= $value->tanggal_kehadiran;?>" data-tb="<?= $value->TB;?>" data-cuti="<?= $value->CUTI;?>" data-dl="<?= $value->DL;?>" data-pkp="<?= $value->PKP;?>" data-s="<?= $value->S;?>" title="ubah data">
 									<i class="mdi-content-create orange-text"></i>
 								</a>
+								
+                                <a href="#modal-hapus"
+									class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-delete-tu"
+									title="hapus data" data-id="<?= $value->id ?>" data-url="kehadiran">
+									<i class="mdi-action-delete red-text"></i>
+								</a>
 							</div>
 						</td>
 					</tr>
@@ -75,17 +76,11 @@
 				<h5 class="more-text">Tambah Data Kehadiran</h5>
 				<h5 class="divider"></h5>
 			</div>
-
-			<div class="col s12 m1">
-				<h3 class="grey-text">
-					<i class="mdi-action-perm-identity"></i>
-				</h3>
-			</div>
 		</div>
 
 		<div class="row">
 			<div class="input-field col s12 m6">
-				<!-- <label for="tanggal_kehadiran">Tanggal Kehadiran</label> -->
+				<p>Tanggal Kehadiran</p>
 				<input type="date" name="tanggal_kehadiran" required>
 			</div>
 		</div>
@@ -93,27 +88,27 @@
 		<div class="row">
 			<div class="input-field col s12 m2">
 				<label for="">TB</label>
-				<input type="number" name="tb">
+				<input type="number" placeholder="0" name="tb">
 			</div>
 
 			<div class="input-field col s12 m2">
 				<label for="">CUTI</label>
-				<input type="number" name="cuti">
+				<input type="number" placeholder="0" name="cuti">
 			</div>
 
 			<div class="input-field col s12 m2">
 				<label for="">DINAS LUAR</label>
-				<input type="number" name="dl">
+				<input type="number" placeholder="0" name="dl">
 			</div>
 
 			<div class="input-field col s12 m2">
 				<label for="">PKP</label>
-				<input type="number" name="pkp">
+				<input type="number" placeholder="0" name="pkp">
 			</div>
 
 			<div class="input-field col s12 m2">
 				<label for="">SAKIT</label>
-				<input type="number" name="s">
+				<input type="number" placeholder="0" name="s">
 			</div>
 		</div>
 	</div>
@@ -144,7 +139,7 @@
 		<div class="row">
 			<div class="input-field col s12 m6">
                 <input type="hidden" name="id_kehadiran" class="id">
-				<!-- <label for="tanggal_kehadiran">Tanggal Kehadiran</label> -->
+				<p>Tanggal Kehadiran</p>
 				<input type="date" class="tanggal" name="tanggal_kehadiran" required>
 			</div>
 		</div>
@@ -152,27 +147,27 @@
 		<div class="row">
 			<div class="input-field col s12 m2">
 				<label for="">TB</label>
-				<input type="number" class="tb" name="tb">
+				<input type="number" placeholder="0" class="tb" name="tb">
 			</div>
 
 			<div class="input-field col s12 m2">
 				<label for="">CUTI</label>
-				<input type="number" class="cuti" name="cuti">
+				<input type="number" placeholder="0" class="cuti" name="cuti">
 			</div>
 
 			<div class="input-field col s12 m2">
 				<label for="">DINAS LUAR</label>
-				<input type="number" class="dl" name="dl">
+				<input type="number" placeholder="0" class="dl" name="dl">
 			</div>
 
 			<div class="input-field col s12 m2">
 				<label for="">PKP</label>
-				<input type="number" class="pkp" name="pkp">
+				<input type="number" placeholder="0" class="pkp" name="pkp">
 			</div>
 
 			<div class="input-field col s12 m2">
 				<label for="">SAKIT</label>
-				<input type="number" class="s" name="s">
+				<input type="number" placeholder="0" class="s" name="s">
 			</div>
 		</div>
 	</div>
@@ -185,19 +180,19 @@
 </div>
 
 <!-- Modal delete -->
-<div id="modal-delete" class="modal">
+<div id="modal-hapus" class="modal">
 	<div class="modal-content">
 		<h4 class="red-text text-lighten-1">
-			<i class="mdi-action-info-outline"></i> Yakin ingin menghapus barang ?
+			<i class="mdi-action-info-outline"></i> Yakin ingin menghapus data ?
 		</h4>
 		<div class="modal-content">
 			<h4>
-				item yang anda hapus akan tersimpan ke data arsip
+				item akan terhapus dari database dan tidak dapat dipulihkan kembali
 			</h4>
 		</div>
 	</div>
 	<div class="modal-footer">
-		<a href="#!" class="waves-effect waves-red btn-flat modal-action modal-close">lanjutkan</a>
+		<a href="" id="tombol-delete" class="waves-effect waves-red btn-flat modal-action modal-close delete-a">Hapus</a>
 		<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
 	</div>
 </div>
