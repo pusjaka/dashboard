@@ -119,6 +119,8 @@
                                     </li>
                                     <li><a href="<?= base_url('dashboard-pe')?>" class="waves-effect waves-cyan"> Dashboard LLA</a>
                                     </li>
+                                    <li><a href="<?= base_url('dashboard-agenda')?>" class="waves-effect waves-cyan"> Dashboard Agenda</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

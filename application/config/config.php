@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-$config['base_url'] = 'https://pusjak-llatp.com';
+$config['base_url'] = 'http://localhost/simkopsis/';
 
 $config['index_page'] = '';
 

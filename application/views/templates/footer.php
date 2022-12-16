@@ -149,6 +149,7 @@
                     		window.print();
                     		document.body.innerHTML = restorepage;
                     	}
+
                     </script>
                     <script type="text/javascript">
                     	$(document).ready(function () {
@@ -483,6 +484,43 @@
                     	});
                     </script>
                     <!-- end kegiatan ptpp -->
+
+					<!-- begin agenda -->
+					<script>
+                    	$(document).ready(function () {
+
+                    		// get Edit Product
+                    		$('.btn-edit2').on('click', function () {
+                    			// get data from button edit
+                    			const id = $(this).data('id');
+                    			const nama = $(this).data('nama');
+                    			const dstart = $(this).data('dstart');
+                    			const tstart = $(this).data('tstart');
+                    			const dend = $(this).data('dend');
+                    			const tend = $(this).data('tend');
+                    			const lokasi = $(this).data('lokasi');
+                    			const pic = $(this).data('pic');
+                    			const peserta = $(this).data('peserta');
+                    			const urgensi = $(this).data('urgensi');
+                    			const deskripsi = $(this).data('deskripsi');
+
+                    			// Set data to Form Edit
+                    			$('.id_agenda').val(id);
+                    			$('.nama_agenda').val(nama);
+                    			$('.tanggal_mulai').val(dstart);
+                    			$('.waktu_mulai').val(tstart);
+                    			$('.tanggal_selesai').val(dend);
+                    			$('.waktu_selesai').val(tend);
+                    			$('.lokasi').val(lokasi);
+                    			$('.pic').val(pic);
+                    			$('.peserta').val(peserta);
+                    			$('.urgensi').val(urgensi);
+                    			$('.deskripsi').val(deskripsi);
+                    		});
+
+                    	});
+                    </script>
+                    <!-- end agenda -->
                     </body>
 
                     </html>

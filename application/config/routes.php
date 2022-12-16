@@ -40,38 +40,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$route['pinjaman/tolak/(:any)'] = 'PinjamanController/tolak/$1';
 
 	/*
-	 * simpanan routes modul
+	 * kehadiran routes modul
 	 * */
 	$route['kehadiran'] = 'KehadiranController/kehadiran';
-	$route['simpanan-qurban-aqikah'] = 'SimpananController/simpananQurbanAqikah';
-	$route['simpanan-umrah'] = 'SimpananController/simpananUmrah';
-	$route['simpanan-idul-fitri'] = 'SimpananController/simpananIdulFitri';
-	$route['simpanan-wadiah'] = 'SimpananController/simpananWadiah';
+	$route['kehadiran/hapus/(:any)'] = 'KehadiranController/hapus/$1';
+
 
 	/*
-	 * PUSJAK routes Modul
+	 * kegiatan routes Modul
 	 * */
 	$route['kegiatan-tu'] = 'KegiatanController/kegiatan_tu';
 	$route['kegiatan-ptpp'] = 'KegiatanController/kegiatan_ptpp';
 	$route['kegiatan-pe'] = 'KegiatanController/kegiatan_pe';
+	$route['kegiatan/hapus/(:any)/(:any)'] = 'KegiatanController/hapus/$1/$2';
 
+	/*
+	 * persuratan routes Modul
+	 * */
 	$route['persuratan'] = 'SuratController/dashboard';
+	$route['persuratan/hapus/(:any)'] = 'SuratController/hapus/$1';
 
+	/*
+	 * anggaran routes Modul
+	 * */
 	$route['anggaran'] = 'AnggaranController/dashboard';
+	$route['anggaran/hapus/(:any)'] = 'AnggaranController/hapus/$1';
 
+	/*
+	 * berkas routes Modul
+	 * */
 	$route['berkas'] = 'BerkasController/dashboard';
+	$route['berkas/hapus/(:any)'] = 'BerkasController/hapus/$1';	
 
+	/*
+	 * dashboard-tu routes Modul
+	 * */
 	$route['dashboard'] = 'DashboardController/dashboard';
 	$route['dashboard-tu-date'] = 'DashboardController/get_dashboard_tu';
 	$route['dashboard-tu-surat-date'] = 'DashboardController/get_dashboard_tu_surat';
 	$route['dashboard-tu-kehadiran'] = 'DashboardController/get_dashboard_tu_kehadiran';
-	
+	$route['dashboard-agenda'] = 'AgendaController/dashboard';
+
+	/*
+	 * agenda routes Modul
+	 * */
+	$route['agenda/load'] = 'AgendaController/load';
+	$route['agenda'] = 'AgendaController/index';
+	$route['agenda/hapus/(:any)'] = 'AgendaController/hapus/$1';
+
+	/*
+	 * dashboard-ptpp routes Modul
+	 * */
 	$route['dashboard-ptpp'] = 'DashboardController/dashboard_ptpp';
 	$route['dashboard-ptpp-kegiatan-date'] = 'DashboardController/get_dashboard_ptpp_kegiatan';
 
+	/*
+	 * dashboard-pe routes Modul
+	 * */
 	$route['dashboard-pe'] = 'DashboardController/dashboard_pe';
 	$route['dashboard-pe-kegiatan-date'] = 'DashboardController/get_dashboard_pe_kegiatan';
 
+	/*
+	 * anggota routes Modul
+	 * */
 	$route['anggota'] = 'AnggotaController';
 	$route['anggota/tambah'] = 'AnggotaController/tambah';
 	$route['anggota/ubah/(:any)'] = 'AnggotaController/ubah/$1';

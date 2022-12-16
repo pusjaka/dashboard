@@ -64,6 +64,7 @@
 						<a class="collapse-item" href="<?= base_url('dashboard')?>">Dashboard TU</a>
 						<a class="collapse-item" href="<?= base_url('dashboard-ptpp')?>">Dashboard KTP</a>
 						<a class="collapse-item" href="<?= base_url('dashboard-pe')?>">Dashboard LLA</a>
+						<a class="collapse-item" href="<?= base_url('dashboard-agenda')?>">Dashboard Agenda</a>
 					</div>
 				</div>
 			</li>

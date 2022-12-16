@@ -7,12 +7,17 @@ class AgendaModel extends GLOBAL_Model{
 		parent::__construct();
 	}
 
+	public function lihat_semua_dashboard(){
+		return parent::get_array_of_table('agenda');
+	}
+
 	public function lihat_semua(){
-		return parent::get_array_of_table('pusjak_agenda');
+		$query = $this->db->query("SELECT * FROM agenda ORDER BY id DESC");
+		return $query->result(); // return berupa array objek
 	}
 
 	public function tambah($data){
-		return parent::insert_with_status('pusjak_agenda',$data);
+		return parent::insert_with_status('agenda',$data);
 	}
 
 	public function lihat_anggota($query){
@@ -27,11 +32,11 @@ class AgendaModel extends GLOBAL_Model{
 		return parent::get_object_of_row('pusjak_agenda',$query);
 	}
 
-	public function ubah($id,$data){
-		return parent::update_table_with_status('pusjak_agenda','agenda_id',$id,$data);
+	public function update_agenda($id,$data){
+		return parent::update_table_with_status('agenda','id',$id,$data);
 	}
 
 	public function hapus($query){
-		return parent::delete_row_with_status('pusjak_agenda',$query);
+		return parent::delete_row_with_status('agenda',$query);
 	}
 }
