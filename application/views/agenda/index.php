@@ -210,13 +210,13 @@
 													<p class="">Urgensi:</p>
 
 													<div class="d-sm-flex d-block">
-														<div class="n-chk">
+														<!-- <div class="n-chk">
 															<label class="new-control new-radio radio-primary">
 																<input type="radio" class="new-control-input"
 																	name="marker" value="bg-primary">
 																<span class="new-control-indicator"></span>Umum
 															</label>
-														</div>
+														</div> -->
 
 														<div class="n-chk">
 															<label class="new-control new-radio radio-danger"
