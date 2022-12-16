@@ -95,10 +95,10 @@
                     <p for="tanggal_kehadiran">Mulai Kegiatan</p>
                     <div class="row">
                         <div class="col m8">
-                            <input type="text" class="datepicker" name="tanggal_mulai">
+                            <input type="text" class="datepicker" name="tanggal_mulai" required>
                         </div>
                         <div class="col m4">
-                            <input type="time" name="waktu_mulai">
+                            <input type="time" name="waktu_mulai" required>
                         </div>
                     </div>
                 </div>
@@ -107,10 +107,10 @@
                     <p for="tanggal_kehadiran">Selesai Kegiatan</p>
                     <div class="row">
                         <div class="col m8">
-                            <input type="text" class="datepicker" name="tanggal_selesai">
+                            <input type="text" class="datepicker" name="tanggal_selesai" required>
                         </div>
                         <div class="col m4">
-                            <input type="time" name="waktu_selesai">
+                            <input type="time" name="waktu_selesai"required>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                 </div>
 
                 <div class="input-field col s12 m6">
-                    <select name="urgensi">
+                    <select name="urgensi" required>
                         <option value="Penting">Penting</option>
                         <option value="Umum">Umum</option>
 				    </select>
