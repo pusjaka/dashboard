@@ -6,10 +6,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
+	'hostname' => 'sql608.main-hosting.eu',
+	'username' => 'u540115449_admin',
 	'password' => '',
-	'database' => 'db_simkopsis',
+	'database' => 'u540115449_pusjak',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
