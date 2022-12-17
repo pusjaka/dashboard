@@ -30,7 +30,7 @@ class AgendaController extends GLOBAL_Controller
 				'title' => $row['nama'],
 				'start' => str_replace(' ', 'T', $row['start_date']),
 				'end' => str_replace(' ', 'T', $row['end_date']),
-				'className' => "bg-danger",
+				'backgroundColor' => $row['color'] ?? '#ffff80',
 				'lokasi' => $row['lokasi'],
 				'pic' => $row['pic'],
 				'peserta' => $row['jumlah_peserta'],
@@ -54,6 +54,7 @@ class AgendaController extends GLOBAL_Controller
     			'jumlah_peserta' => parent::post('peserta'),
     			'urgensi' => parent::post('urgensi'),
     			'deskripsi' => parent::post('deskripsi'),
+				'color' => parent::post('color')
 			);
 
 			$simpan = parent::model('AgendaModel')->tambah($data);
@@ -76,6 +77,7 @@ class AgendaController extends GLOBAL_Controller
     			'jumlah_peserta' => parent::post('peserta'),
     			'urgensi' => parent::post('urgensi'),
     			'deskripsi' => parent::post('deskripsi'),
+				'color' => parent::post('color')
 			);
 
 			$simpan = parent::model('AgendaModel')->update_agenda($_POST['id_agenda'], $data);

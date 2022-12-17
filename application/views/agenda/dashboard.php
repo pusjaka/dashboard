@@ -14,6 +14,7 @@
             <table class="bordered" id="barang-table2">
                 <thead>
                 <tr>
+                    <th></th>
                     <th >Nama Agenda</th>
                     <th >Mulai</th>
                     <th >Selesai</th>
@@ -29,6 +30,7 @@
 				foreach ($agenda as $value):
                 ?>
                 <tr>
+                    <td><div style="background-color: <?= $value->color ?? '#fdffcf' ?>; width: 20px; height: 20px;"></div></td>
                     <td class="teal-text text-darken-1"><?= $value->nama ?></td>
                     <td class="grey-text text-darken-1"><?= $value->start_date ?></td>
                     <td class="grey-text text-darken-1"><?= $value->end_date ?></td>
@@ -88,6 +90,11 @@
                     <label for="progress">Nama Agenda</label>
                     <input type="text" placeholder="Masukkan Nama" class="validate" name="nama_agenda" required>
                 </div>
+                
+                <div class="input-field col s12 m6">
+                    <label for="color">Warna Latar</label>
+                    <input type="color" id="color" name="color" value="#fdffcf">
+                </div>
             </div>
 
             <div class="row">
@@ -95,10 +102,10 @@
                     <p for="tanggal_kehadiran">Mulai Kegiatan</p>
                     <div class="row">
                         <div class="col m8">
-                            <input type="date" name="tanggal_mulai" required>
+                            <input type="date" name="tanggal_mulai">
                         </div>
                         <div class="col m4">
-                            <input type="time" name="waktu_mulai" required>
+                            <input type="time" name="waktu_mulai">
                         </div>
                     </div>
                 </div>
@@ -107,10 +114,10 @@
                     <p for="tanggal_kehadiran">Selesai Kegiatan</p>
                     <div class="row">
                         <div class="col m8">
-                            <input type="date" name="tanggal_selesai" required>
+                            <input type="date" name="tanggal_selesai">
                         </div>
                         <div class="col m4">
-                            <input type="time" name="waktu_selesai"required>
+                            <input type="time" name="waktu_selesai">
                         </div>
                     </div>
                 </div>
@@ -135,7 +142,7 @@
                 </div>
 
                 <div class="input-field col s12 m6">
-                    <select name="urgensi" required>
+                    <select name="urgensi">
                         <option value="Penting">Penting</option>
                         <option value="Umum">Umum</option>
 				    </select>
@@ -172,6 +179,11 @@
                     <input type="hidden" name="id_agenda" class="id">
                     <label for="progress">Nama Agenda</label>
                     <input type="text" placeholder="Masukkan Nama" class="validate nama_agenda" name="nama_agenda" required>
+                </div>
+       
+                <div class="input-field col s12 m6">
+                    <label for="color">Warna Latar</label>
+                    <input type="color" id="color" class="color" name="color" value="">
                 </div>
             </div>
 

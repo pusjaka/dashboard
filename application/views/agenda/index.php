@@ -210,13 +210,13 @@
 													<p class="">Urgensi:</p>
 
 													<div class="d-sm-flex d-block">
-														<!-- <div class="n-chk">
+														<div class="n-chk">
 															<label class="new-control new-radio radio-primary">
 																<input type="radio" class="new-control-input"
 																	name="marker" value="bg-primary">
 																<span class="new-control-indicator"></span>Umum
 															</label>
-														</div> -->
+														</div>
 
 														<div class="n-chk">
 															<label class="new-control new-radio radio-danger"
@@ -526,6 +526,7 @@
 				locale: 'id',
 				editable: true,
 				eventLimit: true,
+				backgroundColor: '#000000',
 				eventMouseover: function (event, jsEvent, view) {
 					$(this).attr('id', event.id);
 
@@ -624,7 +625,6 @@
 				});
 
 				var abv = startDate.config.onChange.push(function (selectedDates, dateStr, instance) {
-
 					var endtDate = flatpickr(document.getElementById('end-date'), {
 						enableTime: true,
 						dateFormat: "Y-m-d H:i",
@@ -638,7 +638,6 @@
 					minDate: new Date()
 				});
 			}
-
 
 			function randomString(length, chars) {
 				var result = '';
