@@ -95,7 +95,7 @@
                     <p for="tanggal_kehadiran">Mulai Kegiatan</p>
                     <div class="row">
                         <div class="col m8">
-                            <input type="text" class="datepicker" name="tanggal_mulai" required>
+                            <input type="date" name="tanggal_mulai" required>
                         </div>
                         <div class="col m4">
                             <input type="time" name="waktu_mulai" required>
@@ -107,7 +107,7 @@
                     <p for="tanggal_kehadiran">Selesai Kegiatan</p>
                     <div class="row">
                         <div class="col m8">
-                            <input type="text" class="datepicker" name="tanggal_selesai" required>
+                            <input type="date" name="tanggal_selesai" required>
                         </div>
                         <div class="col m4">
                             <input type="time" name="waktu_selesai"required>
@@ -180,7 +180,7 @@
                     <p for="tanggal_kehadiran">Mulai Kegiatan</p>
                     <div class="row">
                         <div class="col m8">
-                            <input type="text" class="datepicker tanggal_mulai" name="tanggal_mulai">
+                            <input type="date" class="tanggal_mulai" name="tanggal_mulai">
                         </div>
                         <div class="col m4">
                             <input type="time" class="waktu_mulai" name="waktu_mulai">
@@ -192,7 +192,7 @@
                     <p for="tanggal_kehadiran">Selesai Kegiatan</p>
                     <div class="row">
                         <div class="col m8">
-                            <input type="text" class="datepicker tanggal_selesai" name="tanggal_selesai">
+                            <input type="date" class="tanggal_selesai" name="tanggal_selesai">
                         </div>
                         <div class="col m4">
                             <input type="time" class="waktu_selesai" name="waktu_selesai">
