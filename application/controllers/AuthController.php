@@ -59,6 +59,48 @@
 				
 			}
 		}
+
+		public function change_password()
+		{
+
+				if (isset($_POST['submit'])){
+					//$username = parent::post('username');
+					$password = parent::post('password_lama');
+					
+					$dataPengguna = parent::model('AuthModel')->get_pengguna($this->session->userdata('username'),md5($password));
+					
+					if ($dataPengguna->num_rows() > 0 && parent::post('password_baru') == parent::post('password_validate')){
+						//$pengguna = $dataPengguna->row_array();
+						
+						$data = array(
+							'Pengguna_password' => md5(parent::post('password_baru')),
+						);
+			
+						$simpan = parent::model('AuthModel')->ubah_pengguna($this->session->userdata('user_id'), $data);
+			
+						if ($simpan > 0 ){
+							parent::alert('alert','sukses_tambah');
+							redirect('ubah-password');
+						} else {
+							parent::alert('alert','gagal_tambah');
+							redirect('ubah-password');
+						}
+						parent::alert('alert','error-login');
+					}else if($dataPengguna->num_rows() <= 0 && parent::post('password_baru') == parent::post('password_validate')) {
+						var_dump('Password lama anda salah!');die;
+					}else{
+						var_dump('Ulangi password baru anda dengan benar!');die;
+					}
+					
+				}else{
+
+					$data['title'] = 'Ubah Password';
+					parent::template('auth/ubahPassword',$data);
+
+				}
+				
+			
+		}
 		
 		public function logout()
 		{

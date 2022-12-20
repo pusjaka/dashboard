@@ -100,6 +100,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$route['dashboard-pe'] = 'DashboardController/dashboard_pe';
 	$route['dashboard-pe-kegiatan-date'] = 'DashboardController/get_dashboard_pe_kegiatan';
 
+	$route['ubah-password'] = 'AuthController/change_password';
+
 	/*
 	 * anggota routes Modul
 	 * */
@@ -110,8 +112,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$route['anggota/(:any)'] = 'AnggotaController/detail/$1';
 
 	$route['default_controller'] = 'AdminController';
-	$route['404_override'] = 'NofoundController';
+	$route['404_override'] = '';
 	$route['translate_uri_dashes'] = FALSE;
-
-	
 
