@@ -265,10 +265,10 @@
                 </li>
                 <li>
                     <a href="<?= base_url('bantuan')?>"><i class="mdi-action-help"></i> Bantuan</a>
-                </li>
-                <li>
-                    <a href="<?= base_url('pengaturan')?>"><i class="mdi-action-settings"></i> Pengaturan</a>
                 </li> -->
+                <li>
+                    <a href="<?= base_url('ubah-password')?>"><i class="mdi-action-settings"></i> Ubah Password</a>
+                </li>
                 <li>
                     <a href="#logoutModal" class="modal-trigger"><i class="mdi-action-exit-to-app "></i> Keluar</a>
                 </li>
