@@ -53,6 +53,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$route['kegiatan-ptpp'] = 'KegiatanController/kegiatan_ptpp';
 	$route['kegiatan-pe'] = 'KegiatanController/kegiatan_pe';
 	$route['kegiatan/hapus/(:any)/(:any)'] = 'KegiatanController/hapus/$1/$2';
+	$route['subkegiatan/hapus/(:any)/(:any)/(:any)'] = 'KegiatanController/hapus_sub_kegiatan/$1/$2/$3';
+
+	$route['kegiatan-ptpp/log/(:any)'] = 'KegiatanController/subkegiatan_ptpp/$1';
+	$route['kegiatan-pe/log/(:any)'] = 'KegiatanController/subkegiatan_pe/$1';
 
 	/*
 	 * persuratan routes Modul
@@ -93,12 +97,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	 * */
 	$route['dashboard-ptpp'] = 'DashboardController/dashboard_ptpp';
 	$route['dashboard-ptpp-kegiatan-date'] = 'DashboardController/get_dashboard_ptpp_kegiatan';
+	$route['dashboard-ptpp-detail-kegiatan'] = 'DashboardController/get_detail_kegiatan_ptpp';
 
 	/*
 	 * dashboard-pe routes Modul
 	 * */
 	$route['dashboard-pe'] = 'DashboardController/dashboard_pe';
 	$route['dashboard-pe-kegiatan-date'] = 'DashboardController/get_dashboard_pe_kegiatan';
+	$route['dashboard-pe-detail-kegiatan'] = 'DashboardController/get_detail_kegiatan_pe';
 
 	$route['ubah-password'] = 'AuthController/change_password';
 

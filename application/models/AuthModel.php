@@ -68,4 +68,8 @@
 			$query = array('pengguna_isDelete' => 0);
 			return parent::update_table_with_status('simkopsis_pengguna','pengguna_id',$penggunaID,$query);
 		}
+
+		public function update_anggaran($id,$data){
+			return parent::update_table_with_status('anggaran','id',$id,$data);
+		}
 	}

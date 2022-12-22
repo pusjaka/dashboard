@@ -149,6 +149,7 @@
                     		window.print();
                     		document.body.innerHTML = restorepage;
                     	}
+
                     </script>
                     <script type="text/javascript">
                     	$(document).ready(function () {
@@ -324,27 +325,39 @@
 
                     		// get Delete Product
                     		$('.btn-delete').on('click', function () {
-                    			console.log("button delete triggered!");
+								console.log("button delete triggered!");
                     			// get data from button edit
                     			const id = $(this).data('id');
-                    			const base = '<?= base_url(' / ') ?>';
-                    			const url = $(this).data('url');
-                    			const base_url = base + 'kegiatan/hapus/' + id + '/' + url;
+								const base = '<?= base_url('/') ?>';
+								const url = $(this).data('url');
+                    			const base_url = base+'kegiatan/hapus/'+id+'/'+url;
                     			// Set data to Form Edit
-                    			$('.delete-a').attr("href", base_url);
+								$('.delete-a').attr("href", base_url); 
                     			//$('.delete-a').href(base_url+'/'+id);
                     		});
 
-                    		// get Delete Product
-                    		$('.btn-delete-tu').on('click', function () {
-                    			console.log("button delete triggered!");
+							$('.btn-delete-sub').on('click', function () {
+								console.log("button delete triggered!");
                     			// get data from button edit
                     			const id = $(this).data('id');
-                    			const base = '<?= base_url(' / ') ?>';
-                    			const url = $(this).data('url');
-                    			const base_url = base + url + '/hapus/' + id;
+								const base = '<?= base_url('/') ?>';
+								const idk = $(this).data('idk');
+								const bidang = $(this).data('bidang');
+                    			const base_url = base+'subkegiatan/hapus/'+id+'/'+idk+'/'+bidang;
                     			// Set data to Form Edit
-                    			$('.delete-a').attr("href", base_url);
+								$('.delete-a').attr("href", base_url); 
+                    		});
+
+							// get Delete Product
+                    		$('.btn-delete-tu').on('click', function () {
+								console.log("button delete triggered!");
+                    			// get data from button edit
+                    			const id = $(this).data('id');
+								const base = '<?= base_url('/') ?>';
+								const url = $(this).data('url');
+                    			const base_url = base+url+'/hapus/'+id;
+                    			// Set data to Form Edit
+								$('.delete-a').attr("href", base_url); 
                     			//$('.delete-a').href(base_url+'/'+id);
                     		});
 
@@ -484,8 +497,53 @@
                     </script>
                     <!-- end kegiatan ptpp -->
 
-                    <!-- begin agenda -->
+					<!-- begin sub kegiatan ptpp -->
                     <script>
+                    	$(document).ready(function () {
+
+                    		// get Edit Product
+                    		$('.btn-edit3').on('click', function () {
+                    			// get data from button edit
+                    			const id = $(this).data('id');
+                    			const id_sub = $(this).data('id_sub_kegiatan');
+                    			const kegiatan = $(this).data('kegiatan');
+                    			const completion = $(this).data('completion');
+                    			const status = $(this).data('status');
+                    			const tgl_awal = $(this).data('date_awal');
+                    			const tgl_akhir = $(this).data('date_akhir');
+                    			const keterangan = $(this).data('keterangan');
+                    			//const update = $(this).data('update');
+
+                    			// Set data to Form Edit
+                    			$('.id_kegiatan').val(id);
+                    			$('.id_sub_kegiatan').val(id_sub);
+                    			$('.kegiatan').val(kegiatan);
+                    			$('.completion').val(completion);
+                    			$('.status').val(status);
+                    			$('.date_awal').val(tgl_awal);
+                    			$('.date_akhir').val(tgl_akhir);
+                    			$('.keterangan').val(keterangan);
+
+                    			// Call Modal Edit
+                    			//$('#modal-edit').modal('show');
+                    		});
+
+                    		// get Delete Product
+                    		// $('.btn-delete').on('click', function () {
+                    		// 	// get data from button edit
+                    		// 	const id = $(this).data('id');
+                    		// 	// Set data to Form Edit
+                    		// 	$('.productID').val(id);
+                    		// 	// Call Modal Edit
+                    		// 	$('#deleteModal').modal('show');
+                    		// });
+
+                    	});
+                    </script>
+                    <!-- end sub kegiatan ptpp -->
+
+					<!-- begin agenda -->
+					<script>
                     	$(document).ready(function () {
 
                     		// get Edit Product
@@ -521,23 +579,18 @@
                     </script>
                     <!-- end agenda -->
 
-                    <script>
-                    	document.getElementById('confirm').onkeyup = function () {
-                    		var password = $("#password").val();
-                    		var confirm_password = $("#confirm").val();
-                    		if (password != confirm_password) {
-                    			$("#confirm").css({
-                    				'border-color': "red",
-                    				'border-width': 'medium'
-                    			});
-                    		} else {
-                    			$("#confirm").css({
-                    				'border-color': "#00E676",
-                    				'border-width': 'medium'
-                    			});
-                    		}
-                    	}
-                    </script>
+					<script>
+						document.getElementById('confirm').onkeyup=function(){
+							var password = $("#password").val();
+							var confirm_password = $("#confirm").val();
+							if(password != confirm_password) {
+								$("#confirm").css({'border-color': "red", 'border-width': 'medium'});
+							}
+							else{
+								$("#confirm").css({'border-color': "#00E676", 'border-width': 'medium'});
+							}
+						}
+					</script>
                     </body>
 
                     </html>

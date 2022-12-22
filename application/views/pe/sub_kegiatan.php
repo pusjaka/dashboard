@@ -16,19 +16,22 @@
 			</div>
 
 			<br>
+
+			<div class="valign-wrapper">
+				<a href="<?= base_url('kegiatan-pe') ?>" class="valign-wrapper" style="margin-left: 20px;font-size: 15pt;"><i class="mdi-hardware-keyboard-arrow-left black-text" style="font-size: 25pt !important;"></i> Kembali</a>
+			</div>
+			<br>
+
 			<div class="divider"></div>
 			<table class="bordered" id="barang-table">
 				<thead>
 					<tr>
 						<!-- <th >Tanggal</th> -->
-						<th>Nama Kegiatan</th>
-						<th>PIC</th>
-						<th>Tingkat Prioritas</th>
+						<th>Nama Sub Kegiatan</th>
 						<th>Status</th>
 						<th>Timeline</th>
-						<th>Biaya</th>
 						<th>Completion</th>
-						<th>Deskripsi Update Terakhir</th>
+						<th>Deskripsi</th>
 						<th>Update Terakhir</th>
 						<th class="center">AKSI</th>
 					</tr>
@@ -39,38 +42,25 @@
                 ?>
 					<tr>
 						<!-- <td class="teal-text text-darken-1"><?= $value->tanggal_kegiatan ?></td> -->
-						<td class="grey-text text-darken-1"><?= $value->nama_kegiatan ?></td>
-						<td class="grey-text text-darken-1"><?= $value->PIC ?></td>
-						<td class="grey-text text-darken-1"><?= $value->tingkat_prioritas ?></td>
-						<td class="grey-text text-darken-1"><?= $value->progress ?></td>
-						<td class="grey-text text-darken-1"><?= $value->keterangan ?></td>
-						<td class="grey-text text-darken-1"><?= $value->biaya ?></td>
+						<td class="grey-text text-darken-1"><?= $value->nama_proses ?></td>
+						<td class="grey-text text-darken-1"><?= $value->status ?></td>
+						<td class="grey-text text-darken-1"><?= $value->tanggal_mulai ?> s/d <?= $value->tanggal_selesai ?></td>
 						<td class="grey-text text-darken-1"><?= $value->completion ?>%</td>
-						<td class="grey-text text-darken-1"><?= $value->keterangan ?></td>
+						<td class="grey-text text-darken-1"><?= $value->deskripsi ?></td>
 						<td class="grey-text text-darken-1"><?= $value->updated_at ?></td>
 						<td>
 							<div class="row">
-								<div class="col-4">
-									<a href="#modal-edit" class="btn-flat waves-effect waves-orange col l6 modal-trigger btn-edit2" title="ubah data"
-									data-id="<?= $value->id ?>" data-kegiatan="<?= $value->nama_kegiatan ?>" data-pic="<?= $value->PIC ?>" data-prioritas="<?= $value->tingkat_prioritas ?>" data-keterangan="<?= $value->keterangan ?>" data-biaya="<?= $value->biaya ?>"
-									data-completion="<?= $value->completion ?>" data-id="<?= $value->id ?>" data-update="<?= $value->keterangan ?>">
-										<i class="mdi-content-create orange-text"></i>
-									</a>
-								</div>
-
-								<div class="col-4">
-									<a href="<?= base_url('kegiatan-ptpp/log/'.$value->id.'') ?>" class="btn-flat waves-effect waves-orange col l6" title="detail kegiatan">
-										<i class="mdi-image-remove-red-eye black-text"></i>
-									</a>
-								</div>
-
-								<div class="col-4">
-									<a href="#modal-hapus"
-										class="btn-flat waves-effect waves-orange col l6 modal-trigger btn-delete"
-										title="hapus data" data-id="<?= $value->id ?>" data-url="ptpp">
-										<i class="mdi-action-delete red-text"></i>
-									</a>
-								</div>
+								<a href="#modal-edit" class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-edit3" title="ubah data"
+								data-id="<?= $value->id_kegiatan ?>" data-id_sub_kegiatan="<?= $value->id ?>" data-kegiatan="<?= $value->nama_proses ?>"
+								data-completion="<?= $value->completion ?>" data-status="<?= $value->status ?>" data-keterangan="<?= $value->deskripsi ?>" data-dstart="<?= $value->tanggal_mulai ?>"
+								data-dend="<?= $value->tanggal_selesai ?>">
+									<i class="mdi-content-create orange-text"></i>
+								</a>
+								<a href="#modal-hapus"
+									class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-delete-sub"
+									title="hapus data" data-id="<?= $value->id ?>" data-bidang="LLA" data-idk="<?= $value->id_kegiatan ?>">
+									<i class="mdi-action-delete red-text"></i>
+								</a>
 							</div>
 						</td>
 					</tr>
@@ -111,11 +101,11 @@
 
 <!-- Modal delete -->
 <div id="modal-tambah" class="modal">
-	<?=form_open('kegiatan-ptpp')?>
+	<?=form_open('kegiatan-ptpp/log/'.$id_kegiatan.'')?>
 	<div class="modal-content center">
 		<div class="row">
 			<div class="col s12 m12 center">
-				<h5 class="more-text">Tambah Data Kegiatan</h5>
+				<h5 class="more-text">Tambah Data Sub Kegiatan</h5>
 				<h5 class="divider"></h5>
 			</div>
 
@@ -133,39 +123,23 @@
 		</div>
 
 		<div class="row">
+			<input type="hidden" name="bidang_kegiatan" value="KTP">
+			<input type="hidden" name="id_kegiatan" value="<?= $id_kegiatan ?>">
+
 			<div class="input-field col s12 m6">
-				<label for="nama_kegiatan">Nama Kegiatan</label>
+				<label for="nama_kegiatan">Nama Sub Kegiatan</label>
 				<input type="text" placeholder="Masukkan Nama Kegiatan" name="nama_kegiatan">
 			</div>
-
+		</div>
+		<div class="row">
 			<div class="input-field col s12 m6">
-				<label for="nama_kegiatan">PIC</label>
-				<input type="text" placeholder="Masukkan Nama PIC" name="pic">
-			</div>
-
-			<div class="input-field col s12 m6">
-				<select name="progress">
-					<option value="In Progress">Progress</option>
-					<option value="Selesai">Selesai</option>
-				</select>
+				<label for="nama_kegiatan">Status Sub Kegiatan</label>
+				<input type="text" placeholder="Masukkan Status Sub Kegiatan" name="status_kegiatan">
 			</div>
 
 			<div class="input-field col s12 m6">
 				<label for="progress">Completion</label>
 				<input type="number" placeholder="0" name="completion">
-			</div>
-
-			<div class="input-field col s12 m6">
-				<select name="prioritas">
-					<option value="Low">Low</option>
-					<option value="Medium">Medium</option>
-					<option value="High">High</option>
-				</select>
-			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="nama_kegiatan">Biaya</label>
-				<input type="text" placeholder="Masukkan Nominal" name="biaya">
 			</div>
 
 			<div class="input-field col s12 m6">
@@ -177,9 +151,10 @@
 				<p style="font-size: 9pt;">Tanggal Akhir Kegiatan</p>
 				<input type="date" name="tanggal_kegiatan_end" required>
 			</div>
-			
+		</div>
+		<div class="row">
 			<div class="input-field col s12 m6">
-				<label for="keterangan">Update Terakhir</label>
+				<label for="keterangan">Deskripsi</label>
 				<textarea name="keterangan" id="" placeholder="Masukkan Keterangan" cols="30" rows="10"></textarea>
 			</div>
 		</div>
@@ -194,71 +169,54 @@
 
 <!-- Modal Edit -->
 <div id="modal-edit" class="modal">
-	<?=form_open('kegiatan-ptpp')?>
+	<?=form_open('kegiatan-ptpp/log/'.$id_kegiatan.'')?>
 	<div class="modal-content center">
 		<div class="row">
 			<div class="col s12 m12 center">
-				<h5 class="more-text">Update Data Kegiatan</h5>
+				<h5 class="more-text">Update Data Sub Kegiatan</h5>
 				<h5 class="divider"></h5>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="input-field col s12 m6">
-				<!-- <label for="tanggal_kehadiran">Tanggal Kehadiran</label> -->
-				<input type="hidden" class="id_kegiatan" name="id_kegiatan">
-			</div>
-		</div>
+			<input type="hidden" name="bidang_kegiatan" value="KTP">
+			<input type="hidden" class="id_kegiatan" name="id_kegiatan">
+			<input type="hidden" class="id_sub_kegiatan" name="id_sub_kegiatan">
 
-		<div class="row">
-			<div class="input-field col s12 m6">
-				<label for="nama_kegiatan">Nama Kegiatan</label>
-				<input type="text" class="kegiatan" placeholder="Masukkan Nama Kegiatan" name="nama_kegiatan">
-			</div>
-
-			<div class="input-field col s12 m6">
-				<label for="nama_kegiatan">PIC</label>
-				<input type="text" placeholder="Masukkan Nama PIC" class="pic" name="pic">
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<label for="nama_kegiatan">Nama Sub Kegiatan</label>
+					<input type="text" class="kegiatan" placeholder="Masukkan Nama Kegiatan" name="nama_kegiatan">
+				</div>
 			</div>
 
-			<div class="input-field col s12 m6">
-				<select name="progress">
-					<option value="In Progress">Progress</option>
-					<option value="Selesai">Selesai</option>
-				</select>
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<label for="nama_kegiatan">Status Sub Kegiatan</label>
+					<input type="text" class="status" placeholder="Masukkan Status Sub Kegiatan" name="status_kegiatan">
+				</div>
+
+				<div class="input-field col s12 m6">
+					<label for="progress">Completion</label>
+					<input type="number" class="completion"  placeholder="0" name="completion">
+				</div>
 			</div>
 
-			<div class="input-field col s12 m6">
-				<label for="progress">Completion</label>
-				<input type="number" placeholder="0" class="completion" name="completion">
-			</div>
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<p style="font-size: 9pt;">Tanggal Awal Kegiatan</p>
+					<input type="date" class="date_awal" name="tanggal_kegiatan" required>
+				</div>
 
-			<div class="input-field col s12 m6">
-				<select name="prioritas">
-					<option value="Low">Low</option>
-					<option value="Medium">Medium</option>
-					<option value="High">High</option>
-				</select>
+				<div class="input-field col s12 m6">
+					<p style="font-size: 9pt;">Tanggal Akhir Kegiatan</p>
+					<input type="date" class="date_akhir" name="tanggal_kegiatan_end" required>
+				</div>
 			</div>
 
 			<div class="input-field col s12 m6">
-				<label for="nama_kegiatan">Biaya</label>
-				<input type="text" placeholder="0" class="biaya" name="biaya">
-			</div>
-
-			<div class="input-field col s12 m6">
-				<p style="font-size: 9pt;">Tanggal Awal Kegiatan</p>
-				<input type="date" class="date_awal" name="tanggal_kegiatan" required>
-			</div>
-
-			<div class="input-field col s12 m6">
-				<p style="font-size: 9pt;">Tanggal Akhir Kegiatan</p>
-				<input type="date" class="date_akhir" name="tanggal_kegiatan_end" required>
-			</div>
-			
-			<div class="input-field col s12 m6">
-				<label for="keterangan">Update Terakhir</label>
-				<textarea name="keterangan" placeholder="Masukkan Update" class="keterangan" id="" cols="30" rows="10"></textarea>
+				<label for="keterangan">Deskripsi</label>
+				<textarea name="keterangan" id="" placeholder="Masukkan Keterangan" cols="30" rows="10"></textarea>
 			</div>
 		</div>
 	</div>

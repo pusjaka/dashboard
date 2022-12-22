@@ -68,25 +68,25 @@
 					</div>
 				</div>
 			</li>
-			
+
 			<?php if($this->session->userdata('level') == 'staff') {?>
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
 
 			<li class="nav-item">
-                <a class="nav-link" href="<?= base_url('') ?>">
-                    <i class="fas fa-fw fa-edit"></i>
-                    <span>Admin Dashboard</span>
-                </a>
-            </li>
+				<a class="nav-link" href="<?= base_url('') ?>">
+					<i class="fas fa-fw fa-edit"></i>
+					<span>Admin Dashboard</span>
+				</a>
+			</li>
 			<?php } ?>
 
 			<li class="nav-item">
-                <a class="nav-link" href="<?= base_url('logout') ?>">
-                    <i class="fas fa-fw fa-door-open"></i>
-                    <span>Keluar</span>
-                </a>
-            </li>
+				<a class="nav-link" href="<?= base_url('logout') ?>">
+					<i class="fas fa-fw fa-door-open"></i>
+					<span>Keluar</span>
+				</a>
+			</li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
@@ -142,7 +142,8 @@
 									<!-- Card Header - Dropdown -->
 									<div
 										class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-										<h6 class="m-0 font-weight-bold text-primary">Kegiatan Bidang Kebijakan Transportasi Perkotaan</h6>
+										<h6 class="m-0 font-weight-bold text-primary">Kegiatan Bidang Kebijakan
+											Transportasi Perkotaan</h6>
 										<input type="text" id="searchInput3" class="col-4 form-control"
 											placeholder="Cari"><input class="datepicker form-control col-lg-2"
 											id="date-filter" type="date" value="11/17/2022">
@@ -170,17 +171,20 @@
 												</thead>
 												<tbody>
 													<?php foreach($kegiatan_ptpp as $row): ?>
-														<tr>
-															<td><?= $row->nama_kegiatan; ?></td>
-															<td><?= $row->PIC; ?></td>
-															<td><?= $row->tingkat_prioritas; ?></td>
-															<td><?= $row->progress; ?></td>
-															<td><?= $row->tanggal_kegiatan; ?> s/d <?= $row->tanggal_kegiatan_end; ?></td>
-															<td><?= $row->biaya; ?></td>
-															<td><?= $row->completion; ?></td>
-															<td><?= $row->keterangan; ?></td>
-															<td><?= $row->updated_at; ?></td>
-														</tr>
+													<tr>
+														<td><a href="#"
+														class="userinfo" data-id="<?= $row->id ?>"><?= $row->nama_kegiatan; ?></a>
+														</td>
+														<td><?= $row->PIC; ?></td>
+														<td><?= $row->tingkat_prioritas; ?></td>
+														<td><?= $row->progress; ?></td>
+														<td><?= $row->tanggal_kegiatan; ?> s/d
+															<?= $row->tanggal_kegiatan_end; ?></td>
+														<td><?= $row->biaya; ?></td>
+														<td><?= $row->completion; ?>%</td>
+														<td><?= $row->keterangan; ?></td>
+														<td><?= $row->updated_at; ?></td>
+													</tr>
 													<?php endforeach; ?>
 												</tbody>
 											</table>
@@ -220,23 +224,44 @@
 		<i class="fas fa-angle-up"></i>
 	</a>
 
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
+	<!-- Modal -->
+	<div class="modal fade" id="empModal" role="dialog">
+		<div class="modal-dialog modal-xl">
+
+			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
+					<h4 class="modal-title">Detail Kegiatan</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-				<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+				<div class="modal-body">
+
+				</div>
 				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<!-- Modal delete -->
+	<div id="modal" class="modal">
+		<div class="modal-content center">
+			<div class="row">
+				<div class="col s12 m12 center">
+					<h5 class="more-text">Detail Kegiatan</h5>
+					<h5 class="divider"></h5>
+				</div>
+			</div>
+
+			<div class="row">
+
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="submit" name="simpan"
+				class="waves-effect waves-red btn-flat modal-action modal-close">lanjutkan</button>
+			<a href="#!" class="waves-effect btn-flat modal-action modal-close">Batalkan</a>
 		</div>
 	</div>
 
@@ -302,6 +327,30 @@
 				});
 			}
 		}
+	</script>
+
+	<script>
+		$(document).ready(function(){
+
+			$('.userinfo').click(function(){
+			
+				const id_kegiatan = $(this).data('id');
+				$('#empModal').modal('show'); 
+				// AJAX request
+				$.ajax({
+					url: '<?= base_url('dashboard-ptpp-detail-kegiatan')?>',
+					type: 'POST',
+					data: {idk: id_kegiatan},
+					success: function(response){ 
+						// Add response in Modal body
+						$('.modal-body').html(response);
+
+						// Display Modal
+						$('#empModal').modal('show'); 
+					}
+				});
+			});
+		});
 	</script>
 
 </body>

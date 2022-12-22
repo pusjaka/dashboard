@@ -50,14 +50,20 @@
 						<td class="grey-text text-darken-1"><?= $value->updated_at ?></td>
 						<td>
 							<div class="row">
-								<a href="#modal-edit" class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-edit2" title="ubah data"
+								<a href="#modal-edit" class="btn-flat waves-effect waves-orange col l6 modal-trigger btn-edit2" title="ubah data"
 								data-id="<?= $value->id ?>" data-kegiatan="<?= $value->nama_kegiatan ?>" data-pic="<?= $value->PIC ?>" data-prioritas="<?= $value->tingkat_prioritas ?>" data-keterangan="<?= $value->keterangan ?>" data-biaya="<?= $value->biaya ?>"
 								data-completion="<?= $value->completion ?>" data-id="<?= $value->id ?>" data-update="<?= $value->keterangan ?>">
 									<i class="mdi-content-create orange-text"></i>
 								</a>
 
+								<div class="col-4">
+									<a href="<?= base_url('kegiatan-pe/log/'.$value->id.'') ?>" class="btn-flat waves-effect waves-orange col l6" title="detail kegiatan">
+										<i class="mdi-image-remove-red-eye black-text"></i>
+									</a>
+								</div>
+
 								<a href="#modal-hapus"
-									class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-delete"
+									class="btn-flat waves-effect waves-orange col l6 modal-trigger btn-delete"
 									title="hapus data" data-id="<?= $value->id ?>" data-url="pe">
 									<i class="mdi-action-delete red-text"></i>
 								</a>

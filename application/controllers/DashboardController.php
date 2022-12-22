@@ -166,6 +166,52 @@ class DashboardController extends GLOBAL_Controller{
 		}
 	}
 
+	public function get_detail_kegiatan_pe(){
+		$output = '';
+
+			$query_kegiatan = $this->db->query("SELECT * FROM log_status_kegiatan WHERE id_kegiatan = '".$_POST['idk']."' AND bidang_kegiatan = 'LLA' ORDER BY id DESC");
+			$result = $query_kegiatan->result();
+
+			$output .= " 
+			<table class='table table-bordered' id='dataTable-kegiatan-pe' width='100%' cellspacing='0'>
+								<thead>
+									<tr>
+										<th>Nama Sub Kegiatan</th>
+										<th>Status</th>
+										<th>Timeline</th>
+										<th>Completion</th>
+										<th>Deskripsi</th>
+										<th>Update Terakhir</th>
+									</tr>
+								</thead>
+								<tbody>
+			";
+
+			if($query_kegiatan->num_rows() > 0){
+				foreach($result as $value){
+					$output .= '
+						<tr>
+							<td class="grey-text text-darken-1">'.$value->nama_proses.'</td>
+							<td class="grey-text text-darken-1">'.$value->status.'</td>
+							<td class="grey-text text-darken-1">'.$value->tanggal_mulai.' s/d '.$value->tanggal_selesai.'</td>
+							<td class="grey-text text-darken-1">'.$value->completion.' %</td>
+							<td class="grey-text text-darken-1">'.$value->deskripsi.'</td>
+							<td class="grey-text text-darken-1">'.$value->updated_at.'</td>
+						</tr>
+					';
+				}
+			} else {
+				$output .= '
+					<tr>
+						<td colspan="6">Data Tidak Ditemukan</td>
+					</tr>
+				';
+			}
+			$output .= '</tbody> </table>';
+			
+			echo $output;
+	}
+
 	public function get_dashboard_ptpp_kegiatan(){
 		if(isset($_POST["tanggal"])){
 			$output = '';
@@ -218,6 +264,52 @@ class DashboardController extends GLOBAL_Controller{
 			
 			echo $output;
 		}
+	}
+
+	public function get_detail_kegiatan_ptpp(){
+		$output = '';
+
+			$query_kegiatan = $this->db->query("SELECT * FROM log_status_kegiatan WHERE id_kegiatan = '".$_POST['idk']."' AND bidang_kegiatan = 'KTP' ORDER BY id DESC");
+			$result = $query_kegiatan->result();
+
+			$output .= " 
+			<table class='table table-bordered' id='dataTable-kegiatan-pe' width='100%' cellspacing='0'>
+								<thead>
+									<tr>
+										<th>Nama Sub Kegiatan</th>
+										<th>Status</th>
+										<th>Timeline</th>
+										<th>Completion</th>
+										<th>Deskripsi</th>
+										<th>Update Terakhir</th>
+									</tr>
+								</thead>
+								<tbody>
+			";
+
+			if($query_kegiatan->num_rows() > 0){
+				foreach($result as $value){
+					$output .= '
+						<tr>
+							<td class="grey-text text-darken-1">'.$value->nama_proses.'</td>
+							<td class="grey-text text-darken-1">'.$value->status.'</td>
+							<td class="grey-text text-darken-1">'.$value->tanggal_mulai.' s/d '.$value->tanggal_selesai.'</td>
+							<td class="grey-text text-darken-1">'.$value->completion.' %</td>
+							<td class="grey-text text-darken-1">'.$value->deskripsi.'</td>
+							<td class="grey-text text-darken-1">'.$value->updated_at.'</td>
+						</tr>
+					';
+				}
+			} else {
+				$output .= '
+					<tr>
+						<td colspan="6">Data Tidak Ditemukan</td>
+					</tr>
+				';
+			}
+			$output .= '</tbody> </table>';
+			
+			echo $output;
 	}
 
 	public function get_dashboard_tu_kehadiran(){
@@ -395,38 +487,6 @@ class DashboardController extends GLOBAL_Controller{
 
 			parent::template('pe/kegiatan',$data);
 		}
-    }
-
-    public function simpananQurbanAqikah()
-    {
-        $data['title'] = 'Simpanan Aqikah/Qurban';
-        $data['aqikahQurban'] = parent::model('SimpananModel')->lihat_semua()->result_array();
-
-        parent::template('simpanan/aqikahQurban',$data);
-    }
-
-    public function simpananUmrah()
-    {
-        $data['title'] = 'Simpanan Aqikah/Qurban';
-        $data['umrah'] = parent::model('SimpananModel')->lihat_semua()->result_array();
-
-        parent::template('simpanan/umrah',$data);
-    }
-
-    public function simpananIdulFitri()
-    {
-        $data['title'] = 'Simpanan Aqikah/Qurban';
-        $data['idulFitri'] = parent::model('SimpananModel')->lihat_semua()->result_array();
-
-        parent::template('simpanan/idulFitri',$data);
-    }
-
-    public function simpananWadiah()
-    {
-        $data['title'] = 'Simpanan Aqikah/Qurban';
-        $data['wadiah'] = parent::model('SimpananModel')->lihat_semua()->result_array();
-
-        parent::template('simpanan/wadiah',$data);
     }
 
 }
