@@ -59,7 +59,7 @@
                     <li>
                         <h1 class="logo-wrapper">
                             <a href="<?= base_url()?>" class="brand-logo darken-1">
-                                <img style="width: 50px !important; height: 50px;" src="<?= base_url('assets/images/logo_pusjak.png')?>" alt="pusjak logo">
+                                <img style="width: 40px !important; height: 40px;" src="<?= base_url('assets/images/logo_pusjak.png')?>" alt="pusjak logo">
                                 PUSJAK LLATP
                             </a>
                         </h1>
