@@ -180,7 +180,7 @@
 														<td><?= $row->progress; ?></td>
 														<td><?= $row->tanggal_kegiatan; ?> s/d
 															<?= $row->tanggal_kegiatan_end; ?></td>
-														<td><?= $row->biaya; ?></td>
+														<td>Rp <?= number_format($row->biaya); ?></td>
 														<td><?= $row->completion; ?>%</td>
 														<td><?= $row->keterangan; ?></td>
 														<td><?= $row->updated_at; ?></td>
