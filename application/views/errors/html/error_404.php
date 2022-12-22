@@ -74,11 +74,11 @@
                                     maaf kami tidak dapat menemukan halaman yang anda minta :(
                                 </p>
                             </div>
-                            <div id="site-layout-example-right" class="col s12 m12 l12">
+                            <div id="site-layout-example-right" class="col s12 m12 l12" style="height: 100%;">
                                 <div class="row center">
                                     <h1 class="text-long-shadow col s12">404</h1><br>
                                     <p class="center white-text col s12">It seems that this page doesn’t exist.</p>
-                                    <p class="center s12"><button onclick="goBack()" class="btn waves-effect waves-light">Back</button> <a href="index.html" class="btn waves-effect waves-light">Homepage</a>
+                                    <p class="center s12"><button onclick="goBack()" class="btn waves-effect waves-light">Kembali Ke Halaman Sebelumnya</button>
                                     <p>
                                     </p>
                                 </div>
