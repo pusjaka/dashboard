@@ -26,8 +26,8 @@
                 ?>
                 <tr>
                     <td class="teal-text text-darken-1"><?= $value->tanggal_anggaran ?></td>
-                    <td class="grey-text text-darken-1"><?= $value->total_anggaran ?></td>
-                    <td class="grey-text text-darken-1"><?= $value->realisasi_anggaran ?></td>
+                    <td class="grey-text text-darken-1">Rp <?= number_format($value->total_anggaran); ?></td>
+                    <td class="grey-text text-darken-1">Rp <?= number_format($value->realisasi_anggaran); ?></td>
                     <td>
                         <div class="row">
 								<a href="#modal-edit" class="btn-flat waves-effect waves-orange col l6 center modal-trigger btn-edit1"
