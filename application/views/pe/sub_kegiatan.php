@@ -4,7 +4,7 @@
 			<div class="card-content margin" style="margin: 12px;">
 				<div class="row">
 					<div class="col s6 m6 l6">
-						<h4 class="cardbox-text light left margin">Daftar Kegiatan Bidang Kebijakan Transportasi Perkotaan</h4>
+						<h4 class="cardbox-text light left margin">Daftar Sub Kegiatan Bidang Kebijakan Lalu Lintas dan Angkutan</h4>
 					</div>
 					<!--                    <div class="col s6 m6 l6">-->
 					<!--                        <a href="#tambah-kategori" class="btn-flat white-text blue right waves-effect waves-light modal-trigger">-->
