@@ -374,9 +374,9 @@
 				</div>
 				<br>
 				<h5 style="color: black;">Total Anggaran</h3>
-				<h5>Rp <?= $anggaran->total_anggaran ?></h5>
+				<h5>Rp <?= number_format($anggaran->total_anggaran) ?></h5>
 				<h5 style="color: black;">Realisasi</h5>
-				<h5>Rp <?= $anggaran->realisasi_anggaran ?></h5>
+				<h5>Rp <?= number_format($anggaran->realisasi_anggaran) ?></h5>
 			</div>
 
 			<!-- Card Body -->
