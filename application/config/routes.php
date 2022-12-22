@@ -118,6 +118,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$route['anggota/(:any)'] = 'AnggotaController/detail/$1';
 
 	$route['default_controller'] = 'AdminController';
-	$route['404_override'] = '';
+	$route['404_override'] = 'NofoundController';
 	$route['translate_uri_dashes'] = FALSE;
 
