@@ -78,7 +78,7 @@
                                 <div class="row center">
                                     <h1 class="text-long-shadow col s12">404</h1><br>
                                     <p class="center white-text col s12">It seems that this page doesn’t exist.</p>
-                                    <p class="center s12"><button onclick="goBack()" class="btn waves-effect waves-light">Kembali Ke Halaman Sebelumnya</button>
+                                    <p class="center s12"><a href="<?= base_url(); ?>" class="btn waves-effect waves-light">Kembali Ke Halaman Utama</a>
                                     <p>
                                     </p>
                                 </div>
