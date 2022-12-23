@@ -165,7 +165,7 @@
 														<th>Timeline</th>
 														<th>Biaya</th>
 														<th>Completion</th>
-														<th>Deskripsi Update</th>
+														<th width="20%">Deskripsi Update</th>
 														<th>Update Terakhir</th>
 													</tr>
 												</thead>
