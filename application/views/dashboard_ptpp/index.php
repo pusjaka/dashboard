@@ -160,11 +160,11 @@
 													<tr>
 														<th>Kegiatan</th>
 														<th>PIC</th>
-														<th>Tingkat Prioritas</th>
+														<th width="5%">Tingkat Prioritas</th>
 														<th>Status</th>
 														<th>Timeline</th>
 														<th>Biaya</th>
-														<th>Completion</th>
+														<th width="5%">Completion</th>
 														<th width="20%">Deskripsi Update</th>
 														<th>Update Terakhir</th>
 													</tr>
