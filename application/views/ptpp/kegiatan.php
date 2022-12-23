@@ -46,7 +46,7 @@
 						<td class="grey-text text-darken-1"><?= $value->tanggal_kegiatan ?> s/d <?= $value->tanggal_kegiatan_end ?></td>
 						<td class="grey-text text-darken-1">Rp <?= number_format($value->biaya); ?></td>
 						<td class="grey-text text-darken-1"><?= $value->completion ?>%</td>
-						<td class="grey-text text-darken-1" width="75%"><?= $value->keterangan ?></td>
+						<td class="grey-text text-darken-1" width="30%"><?= $value->keterangan ?></td>
 						<td class="grey-text text-darken-1"><?= $value->updated_at ?></td>
 						<td>
 							<div class="row">
