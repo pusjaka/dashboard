@@ -43,7 +43,7 @@
 						<td class="grey-text text-darken-1"><?= $value->PIC ?></td>
 						<td class="grey-text text-darken-1"><?= $value->tingkat_prioritas ?></td>
 						<td class="grey-text text-darken-1"><?= $value->progress ?></td>
-						<td class="grey-text text-darken-1"><?= $value->tanggal_kegiatan ?> s/d <?= $value->tanggal_kegiatan_end ?>/td>
+						<td class="grey-text text-darken-1"><?= $value->tanggal_kegiatan ?> s/d <?= $value->tanggal_kegiatan_end ?></td>
 						<td class="grey-text text-darken-1">Rp <?= number_format($value->biaya); ?></td>
 						<td class="grey-text text-darken-1"><?= $value->completion ?>%</td>
 						<td class="grey-text text-darken-1"><?= $value->keterangan ?></td>
