@@ -163,7 +163,7 @@
 														<th>Status</th>
 														<th>Timeline</th>
 														<th>Biaya</th>
-														<th width="5%">Completion</th>
+														<th>Completion</th>
 														<th width="20%">Deskripsi</th>
 														<th>Update Terakhir</th>
 													</tr>
@@ -179,7 +179,7 @@
 														<td><?= $row->tanggal_kegiatan; ?> s/d
 															<?= $row->tanggal_kegiatan_end; ?></td>
 														<td>Rp <?= number_format($row->biaya); ?></td>
-														<td><?= $row->completion; ?></td>
+														<td><?= $row->completion; ?>%</td>
 														<td><?= $row->keterangan; ?></td>
 														<td><?= $row->updated_at; ?></td>
 													</tr>
